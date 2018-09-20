@@ -1,6 +1,5 @@
 ---
 header-includes:
-    - \usepackage{tikz}
     - \usepackage{graphicx}
 ---
 
@@ -33,5 +32,4 @@ in what way. By doing this, we can advise the bank about two factors:
     decision? Should the bank call other people when the economy evolves?
 
 ## Initial causal diagram
-
 \includegraphics[width=20cm,angle=90]{dagitty-model.png}
