@@ -4,7 +4,7 @@
 \node (v1) at (0.722,-0.0510) {consumer price index};
 \node (v2) at (0.258,0.218) {contact type (medium)};
 \node (v3) at (-0.829,0.309) {credit in default?};
-\node (v4) at (-1.65,-0.349) {days since last contact};
+\node (v4) at (-1.59,-0.270) {days since last contact};
 \node (v5) at (0.853,1.16) {employment variation};
 \node (v6) at (0.889,-0.517) {euribor 3 month rate};
 \node (v7) at (0.0850,0.432) {has housing loan?};
@@ -17,7 +17,7 @@
 \node (v14) at (0.740,1.50) {number of employees};
 \node (v15) at (-0.159,-0.300) {previous campaign outcome};
 \node (v16) at (0.425,-0.679) {this persons attitude to the current state of the economy};
-\node (v17) at (0.0170,-1.08) {OUTCOME};
+\node (v17) at (-0.0340,-1.09) {OUTCOME};
 \node (v18) at (-0.203,1.54) {age};
 \node (v19) at (-0.689,1.31) {education};
 \node (v20) at (0.314,0.993) {job};
