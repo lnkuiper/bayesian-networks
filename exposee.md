@@ -1,6 +1,7 @@
 ---
 header-includes:
     - \usepackage{tikz}
+    - \usepackage{graphicx}
 ---
 
 # Project Proposal
@@ -33,4 +34,4 @@ in what way. By doing this, we can advise the bank about two factors:
 
 ## Initial causal diagram
 
-\input{latexmodel}
+\includegraphics[width=\textwidth]{dagitty-model.png}
