@@ -34,4 +34,4 @@ in what way. By doing this, we can advise the bank about two factors:
 
 ## Initial causal diagram
 
-\includegraphics[width=\textwidth]{dagitty-model.png}
+\includegraphics[width=20cm,angle=90]{dagitty-model.png}
