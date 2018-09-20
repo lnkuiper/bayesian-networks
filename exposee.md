@@ -1,6 +1,6 @@
 ---
 header-includes:
-    - \usepackage{tikz}
+    - \usepackage{rotating}
     - \usepackage{graphicx}
 ---
 
@@ -33,5 +33,6 @@ in what way. By doing this, we can advise the bank about two factors:
     decision? Should the bank call other people when the economy evolves?
 
 ## Initial causal diagram
-
+\begin{sideways}
 \includegraphics[width=\textwidth]{dagitty-model.png}
+\end{sideways}
