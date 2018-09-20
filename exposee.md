@@ -1,11 +1,12 @@
 ---
+geometry: margin=7em
 header-includes:
     - \usepackage{graphicx}
 ---
 
 # Project Proposal
 ### Portuguese Bank Marketing
-**Niek Janssen**,\qquad **Laurens Kuiper**,\qquad **Ward Theunisse**
+**Niek Janssen, Laurens Kuiper, Ward Theunisse**
 
 ## Problem domain
 Companies engage in direct marketing campaigns by contacting potential customers to reach a specific goal (e.g. selling a product or service).
