@@ -1,4 +1,11 @@
+---
+header-includes:
+    - \usepackage{tikz}
+---
+
 # Project Proposal
+Portugese Bank Marketing
+
   - **Niek Janssen**
   - **Laurens Kuiper**
   - **Ward Theunisse**
@@ -23,4 +30,4 @@ in what way. By doing this, we can advise the bank about two factors:
 
 ## Initial causal diagram
 
-
+\input{latexmodel}
