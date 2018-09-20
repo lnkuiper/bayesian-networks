@@ -4,14 +4,17 @@ header-includes:
 ---
 
 # Project Proposal
-Portuguese Bank Marketing
-
-  - **Niek Janssen**
-  - **Laurens Kuiper**
-  - **Ward Theunisse**
+### Portuguese Bank Marketing
+**Niek Janssen**,\qquad **Laurens Kuiper**,\qquad **Ward Theunisse**
 
 ## Problem domain
+Companies engage in direct marketing campaigns by contacting potential customers to reach a specific goal (e.g. selling a product or service).
+Communicating is often done by telephone, initiated from the company's contact center.
+One of the biggest challenges the companies face is estimating which people are most likely to buy their product: many calls result in customers declining the offer.
+For a company to have a succesful marketing campaign, a sufficient number of customers must follow up on their offer, otherwise it will cost more than it will bring in.
 
+Companies typically collect data about their campaign to improve their success.
+In this project, we will use publicly available data from one such campaign to build a Bayesian network model about the factors involved in bank marketing.
 
 ## Data
 We use a publicly available bank marketing dataset retrieved from the UCI Machine Learning Repository\footnote{http://archive.ics.uci.edu/ml/datasets/Bank+Marketing}. This dataset contains data related to a direct marketing campaign by a Portuguese banking institution based on phone calls. Each row in the table is one contact with a potential customer called in this marketing campaign. Our Bayesian network will contain the following variables related to a potential customer: Age, Eduction, Job, Marital Status, Whether they currently have a housing loan, Whether they have credit in default, Whether they have a personal loan.
