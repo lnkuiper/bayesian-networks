@@ -1,0 +1,76 @@
+# age: numeric
+Influences many things in the data set, such as job, marital, education
+And maybe also housing and loan
+
+job: categorical (12)
+Influences money-related variables such as default, loan, (housing?)
+Also influences marital
+
+marital: categorical (4)
+Influences housing
+
+education: categorical (8)
+Influences job, marital,
+
+https://www.economicshelp.org/blog/6544/economics/uk-consumer-confidence-2/
+
+
+dag {
+bb="0,0,1,1"
+"age: numeric" [pos="0.293,0.043"]
+"campaign: numeric" [pos="0.727,0.310"]
+"cons.conf.idx: numeric" [pos="0.117,0.349"]
+"cons.price.idx: numeric" [pos="0.050,0.185"]
+"contact: binary" [pos="0.513,0.295"]
+"day_of_week: categorical (7)" [pos="0.585,0.077"]
+"default: ternary" [pos="0.375,0.455"]
+"duration: numeric" [pos="0.549,0.595"]
+"emp.var.rate: numeric" [pos="0.121,0.023"]
+"euribor3m: numeric" [pos="0.170,0.248"]
+"housing: ternary" [pos="0.463,0.414"]
+"job: categorical (12)" [pos="0.361,0.188"]
+"loan: ternary" [pos="0.291,0.532"]
+"marital: categorical (4)" [pos="0.306,0.283"]
+"month: categorical (12)" [pos="0.704,0.099"]
+"nr.employed: numeric" [pos="0.177,0.091"]
+"poutcome: ternary" [pos="0.844,0.305"]
+"previous: numeric" [pos="0.844,0.092"]
+"y: binary" [pos="0.508,0.946"]
+education [pos="0.232,0.185"]
+"age: numeric" -> "contact: binary"
+"age: numeric" -> "job: categorical (12)"
+"age: numeric" -> "marital: categorical (4)"
+"age: numeric" -> education
+"campaign: numeric" -> "duration: numeric"
+"cons.conf.idx: numeric" -> "default: ternary"
+"cons.conf.idx: numeric" -> "housing: ternary"
+"cons.conf.idx: numeric" -> "loan: ternary"
+"cons.price.idx: numeric" -> "cons.conf.idx: numeric"
+"contact: binary" -> "duration: numeric"
+"day_of_week: categorical (7)" -> "duration: numeric"
+"default: ternary" -> "duration: numeric"
+"default: ternary" -> "y: binary"
+"duration: numeric" -> "y: binary"
+"emp.var.rate: numeric" -> "nr.employed: numeric"
+"euribor3m: numeric" -> "cons.conf.idx: numeric"
+"housing: ternary" -> "duration: numeric"
+"housing: ternary" -> "y: binary"
+"job: categorical (12)" -> "contact: binary"
+"job: categorical (12)" -> "default: ternary"
+"job: categorical (12)" -> "housing: ternary"
+"job: categorical (12)" -> "loan: ternary"
+"job: categorical (12)" -> "marital: categorical (4)"
+"loan: ternary" -> "duration: numeric"
+"loan: ternary" -> "y: binary"
+"marital: categorical (4)" -> "housing: ternary"
+"month: categorical (12)" -> "duration: numeric"
+"nr.employed: numeric" -> "cons.conf.idx: numeric"
+"nr.employed: numeric" -> "job: categorical (12)"
+"poutcome: ternary" -> "campaign: numeric"
+"poutcome: ternary" -> "duration: numeric"
+"poutcome: ternary" -> "y: binary"
+"previous: numeric" -> "poutcome: ternary"
+education -> "job: categorical (12)"
+education -> "loan: ternary"
+education -> "marital: categorical (4)"
+}
