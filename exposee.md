@@ -18,22 +18,23 @@ Companies typically collect data about their campaign to improve their success.
 In this project, we will use publicly available data from one such campaign to build a Bayesian network model about the factors involved in bank marketing.
 
 ## Data
-We use a publicly available bank marketing dataset retrieved from the UCI Machine Learning Repository\footnote{http://archive.ics.uci.edu/ml/datasets/Bank+Marketing}. This dataset contains data related to a direct marketing campaign by a Portuguese banking institution based on phone calls. Each row in the table is one contact with a potential customer called in this marketing campaign. Our Bayesian network will contain the following variables related to a potential customer: Age, Eduction, Job, Marital Status, Whether they currently have a housing loan, Whether they have credit in default, Whether they have a personal loan.
-It will also contain the following variables related to the current call: The contact type (whether the potential customer used a mobile phone, landline), Contact month, Contact weekday, Amount of days since last contact, Previous campaign outcome, Number of contacts in this campaign, Contact duration, Outcome.
+We use a publicly available bank marketing dataset retrieved from the UCI Machine Learning Repository\footnote{http://archive.ics.uci.edu/ml/datasets/Bank+Marketing}. This dataset contains data related to a direct marketing campaign by a Portuguese banking institution based on phone calls. Each row in the table corresponds one instance of telephonic contact with a potential customer in the latest marketing campaign. Our Bayesian network will contain the following variables related to a potential customer: Age, Eduction, Job, Marital Status, whether they currently have a Housing Loan, whether they have Credit in Default, and whether they have a Personal Loan.
+It will also contain the following variables related to the call: the Contact type (whether the potential customer used a mobile phone, landline), Contact Month, Contact Weekday, amount of Days Since Last Contact, Previous campaign outcome, Number of Contacts in this Campaign, Contact Duration, and the Outcome of the call (whether the customer subscribes or not).
 Lastly it will also contain these national economic variables:
-Consumer price index, Consumer confidence level, 3 Month Euribor (European banking loan) rate, Employment rate, Employment variation.
+Consumer Price Index, Consumer Confidence Level, 3 Month Euribor (European banking loan) rate, Employment Rate, Employment Variation.
 
 ## Application
-We are mainly interested in what variables influence the decision of taking a
-term deposit. We should be able to see what variables have a large effect, and
-in what way. By doing this, we can advise the bank about two factors: 
+We are mainly interested in which variables influence the customer's decision 
+subscribing to a term deposit. We will be able to learn which variables affect
+the decision, and how large their effect size is. Using the final model, we
+can advise the bank about: 
 
-  - What people should the bank choose? For example, people with certain types
+  - Which people should the bank target? For example, people with certain types
       of jobs or education might be more susceptible to a term deposit. 
-  - Given a certain person, what is the best timing to call this person? For
-      example, students might not like being called at 9:00 in the morning. 
-  - How important is a person's view on the current economy for making this
-    decision? Should the bank call other people when the economy evolves?
+  - Given a certain person, what is the best time to call this him/her? For
+      example, students do not like being called early in the morning. 
+  - How important is the current state of the economy for making this decision?
+      Should the bank target different people as the economy evolves?
 
 ## Initial causal diagram
 \includegraphics[width=20cm,angle=90]{dagitty-model.png}
