@@ -1,25 +1,16 @@
 dag {
 age [pos="-0.203,-1.544"]
-attitude [latent,pos="0.425,0.679"]
 campaign [pos="-0.210,0.533"]
-cons.conf.idx [pos="0.829,0.313"]
-cons.price.idx [pos="0.722,0.051"]
 contact [pos="0.258,-0.218"]
 day_of_week [pos="-1.703,-0.131"]
 default [pos="-0.829,-0.309"]
 duration [pos="-1.053,0.877"]
 education [pos="-0.689,-1.307"]
-emp.var.rate [pos="0.853,-1.158"]
-euribor3m [pos="0.889,0.517"]
 housing [pos="0.085,-0.432"]
 job [pos="0.314,-0.993"]
 loan [pos="-1.235,-0.345"]
 marital [pos="-0.287,-0.973"]
 month [pos="-1.450,-0.231"]
-nr.employed [pos="0.740,-1.498"]
-pdays [pos="-1.591,0.270"]
-poutcome [pos="-0.158,0.261"]
-previous [pos="-0.397,-0.236"]
 y [outcome,pos="-0.034,1.088"]
 age -> contact
 age -> default
@@ -30,11 +21,8 @@ age -> job
 age -> loan
 age -> marital
 age -> y
-attitude -> y
 campaign -> duration
 campaign -> y
-cons.conf.idx -> attitude
-cons.price.idx -> attitude
 contact -> duration
 contact -> y
 day_of_week -> duration
@@ -46,14 +34,9 @@ education -> default
 education -> job
 education -> loan
 education -> marital
-emp.var.rate -> attitude
-emp.var.rate -> job
-emp.var.rate <-> nr.employed
-euribor3m -> attitude
 housing -> default
 housing -> duration
 housing -> y
-job -> attitude
 job -> contact
 job -> default
 job -> duration
@@ -69,12 +52,4 @@ marital -> housing
 marital -> loan
 month -> duration
 month -> y
-nr.employed -> attitude
-nr.employed -> job
-pdays -> duration
-pdays -> y
-poutcome -> campaign
-poutcome -> duration
-poutcome -> y
-previous -> poutcome
 }

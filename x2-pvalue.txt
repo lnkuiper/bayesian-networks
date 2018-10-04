@@ -1,0 +1,5 @@
+Hoge x2:		de variabelen zijn afhankelijk
+Lage x2:		de variabelen zijn onafhankelijk
+
+Lage p-value:	de onafhankelijkheid die wij claimen is onwaarschijnlijk
+Hoge p-value:	do onafhankelijkheid die wij claimen is waarschijnlijk

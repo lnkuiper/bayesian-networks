@@ -1,0 +1,164 @@
+                                                                          rmsea
+age _||_ campaign                                                   0.000000000
+age _||_ day_of_week                                                0.005240938
+age _||_ month                                                      0.015847653
+campaign _||_ contact                                               0.012799439
+campaign _||_ day_of_week                                           0.007128531
+campaign _||_ default                                               0.001658531
+campaign _||_ education                                             0.000000000
+campaign _||_ housing                                               0.003247940
+campaign _||_ job                                                   0.000000000
+campaign _||_ loan                                                  0.001988112
+campaign _||_ marital                                               0.000000000
+campaign _||_ month                                                 0.009142262
+contact _||_ day_of_week                                            0.027453181
+contact _||_ default | age, job                                     0.154088703
+contact _||_ education | age, job                                   0.136118307
+contact _||_ housing | age, job                                     0.090004448
+contact _||_ loan | age, job                                        0.059931470
+contact _||_ marital | age, job                                     0.105743236
+contact _||_ month                                                  0.203028915
+day_of_week _||_ default                                            0.005656786
+day_of_week _||_ education                                          0.007455172
+day_of_week _||_ housing                                            0.007317333
+day_of_week _||_ job                                                0.004962075
+day_of_week _||_ loan                                               0.003051921
+day_of_week _||_ marital                                            0.005444050
+day_of_week _||_ month                                              0.022188783
+default _||_ month                                                  0.037308145
+duration _||_ education | age, default, housing, job, loan, marital 0.337165207
+education _||_ housing | age, job, marital                          0.120347099
+education _||_ month                                                0.031570292
+education _||_ y | age, contact, default, housing, loan             0.100914164
+education _||_ y | age, default, housing, job, loan                 0.163680626
+housing _||_ loan | age, job, marital                               0.332740218
+housing _||_ month                                                  0.018080839
+job _||_ month                                                      0.033113177
+job _||_ y | age, contact, default, housing, loan                   0.097765858
+loan _||_ month                                                     0.006609857
+marital _||_ month                                                  0.016724118
+marital _||_ y | age, contact, default, housing, loan               0.085388232
+marital _||_ y | age, default, housing, job, loan                   0.133991762
+                                                                              x2
+age _||_ campaign                                                     1959.57802
+age _||_ day_of_week                                                   656.44079
+age _||_ month                                                        7861.41742
+campaign _||_ contact                                                  317.64696
+campaign _||_ day_of_week                                              507.24493
+campaign _||_ default                                                   91.29012
+campaign _||_ education                                                274.51067
+campaign _||_ housing                                                  117.62788
+campaign _||_ job                                                      439.85018
+campaign _||_ loan                                                      95.34921
+campaign _||_ marital                                                  112.95200
+campaign _||_ month                                                   1639.26357
+contact _||_ day_of_week                                               128.16680
+contact _||_ default | age, job                                       1163.97518
+contact _||_ education | age, job                                     3690.96423
+contact _||_ housing | age, job                                       1055.32483
+contact _||_ loan | age, job                                           754.54107
+contact _||_ marital | age, job                                       1401.42843
+contact _||_ month                                                   15288.82762
+day_of_week _||_ default                                                18.54362
+day_of_week _||_ education                                              92.09639
+day_of_week _||_ housing                                                25.64233
+day_of_week _||_ job                                                    88.62102
+day_of_week _||_ loan                                                   11.06900
+day_of_week _||_ marital                                                26.64825
+day_of_week _||_ month                                                 766.01136
+default _||_ month                                                    1049.90559
+duration _||_ education | age, default, housing, job, loan, marital 113019.13082
+education _||_ housing | age, job, marital                            5220.27931
+education _||_ month                                                  2649.17500
+education _||_ y | age, contact, default, housing, loan               2955.40032
+education _||_ y | age, default, housing, job, loan                   4515.29834
+housing _||_ loan | age, job, marital                                32749.14274
+housing _||_ month                                                     260.36496
+job _||_ month                                                        4569.92152
+job _||_ y | age, contact, default, housing, loan                     4015.34267
+loan _||_ month                                                         50.39044
+marital _||_ month                                                     338.03578
+marital _||_ y | age, contact, default, housing, loan                 1112.90019
+marital _||_ y | age, default, housing, job, loan                     2049.93791
+                                                                        df
+age _||_ campaign                                                     3157
+age _||_ day_of_week                                                   308
+age _||_ month                                                         693
+campaign _||_ contact                                                   41
+campaign _||_ day_of_week                                              164
+campaign _||_ default                                                   82
+campaign _||_ education                                                287
+campaign _||_ housing                                                   82
+campaign _||_ job                                                      451
+campaign _||_ loan                                                      82
+campaign _||_ marital                                                  123
+campaign _||_ month                                                    369
+contact _||_ day_of_week                                                 4
+contact _||_ default | age, job                                        402
+contact _||_ education | age, job                                     1975
+contact _||_ housing | age, job                                        747
+contact _||_ loan | age, job                                           717
+contact _||_ marital | age, job                                        759
+contact _||_ month                                                       9
+day_of_week _||_ default                                                 8
+day_of_week _||_ education                                              28
+day_of_week _||_ housing                                                 8
+day_of_week _||_ job                                                    44
+day_of_week _||_ loan                                                    8
+day_of_week _||_ marital                                                12
+day_of_week _||_ month                                                  36
+default _||_ month                                                      18
+duration _||_ education | age, default, housing, job, loan, marital 106126
+education _||_ housing | age, job, marital                            4970
+education _||_ month                                                    63
+education _||_ y | age, contact, default, housing, loan               2746
+education _||_ y | age, default, housing, job, loan                   3875
+housing _||_ loan | age, job, marital                                 2183
+housing _||_ month                                                      18
+job _||_ month                                                          99
+job _||_ y | age, contact, default, housing, loan                     3552
+loan _||_ month                                                         18
+marital _||_ month                                                      27
+marital _||_ y | age, contact, default, housing, loan                  981
+marital _||_ y | age, default, housing, job, loan                     1765
+                                                                          p.value
+age _||_ campaign                                                    1.000000e+00
+age _||_ day_of_week                                                 2.495089e-27
+age _||_ month                                                       0.000000e+00
+campaign _||_ contact                                                1.841796e-44
+campaign _||_ day_of_week                                            9.887507e-37
+campaign _||_ default                                                2.262258e-01
+campaign _||_ education                                              6.918570e-01
+campaign _||_ housing                                                6.063760e-03
+campaign _||_ job                                                    6.376209e-01
+campaign _||_ loan                                                   1.486874e-01
+campaign _||_ marital                                                7.311008e-01
+campaign _||_ month                                                 3.820106e-159
+contact _||_ day_of_week                                             9.602895e-27
+contact _||_ default | age, job                                      3.266867e-75
+contact _||_ education | age, job                                   5.305912e-107
+contact _||_ housing | age, job                                      6.128691e-13
+contact _||_ loan | age, job                                         1.605744e-01
+contact _||_ marital | age, job                                      8.934433e-41
+contact _||_ month                                                   0.000000e+00
+day_of_week _||_ default                                             1.750044e-02
+day_of_week _||_ education                                           9.296292e-09
+day_of_week _||_ housing                                             1.208964e-03
+day_of_week _||_ job                                                 7.745018e-05
+day_of_week _||_ loan                                                1.978202e-01
+day_of_week _||_ marital                                             8.679830e-03
+day_of_week _||_ month                                              1.111297e-137
+default _||_ month                                                  1.506591e-211
+duration _||_ education | age, default, housing, job, loan, marital  6.610196e-49
+education _||_ housing | age, job, marital                           6.642207e-03
+education _||_ month                                                 0.000000e+00
+education _||_ y | age, contact, default, housing, loan              2.839512e-03
+education _||_ y | age, default, housing, job, loan                  2.342039e-12
+housing _||_ loan | age, job, marital                                0.000000e+00
+housing _||_ month                                                   6.319495e-45
+job _||_ month                                                       0.000000e+00
+job _||_ y | age, contact, default, housing, loan                    6.361269e-08
+loan _||_ month                                                      6.587500e-05
+marital _||_ month                                                   1.760508e-55
+marital _||_ y | age, contact, default, housing, loan                2.060086e-03
+marital _||_ y | age, default, housing, job, loan                    2.430562e-06
