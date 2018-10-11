@@ -11,3 +11,5 @@ We voegen een pijl toe van maand naar default.
 We vinden een dependency tussen education en contact geconditioneerd op age.
 We voegen een pijl toe van education naar contact.
 
+Education en duration werden als dependent gevonden geconditioneerd op like 5 variabelen.
+We hebben een latent variabele (common cause) toegevoegd die voor geduld staat.
