@@ -28,3 +28,9 @@ Nu lijken alle onbedoelde dependencies verdwenen te zijn.
 We testen het verwijderen van patience omdat dat effect (afhankelijkheid tussen education en duration) misschien nu verklaard zou worden via wealth, maar het lijkt dat die toch betekenisvol is.
 
 We testen of een pijl van education naar duraction direct ook kan en dat lijkt idd het geval. We verwijderen patience.
+
+We testen of de pijlen uit day_of_week daadwerkelijk betekenisvol zijn.
+Dit lijkt niet het geval. We verwijderen alle pijlen vanuit day_of_week.
+
+We testen of de pijlen uit campaign invloed hebben.
+Lijkt ook niet het geval, verwijderen de pijlen.
