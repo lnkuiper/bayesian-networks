@@ -2,3 +2,12 @@ We vinden een dependency tussen het contactmedium en de maand.
 Dit was niet verwacht maar lijkt wel overeen te komen met de data, na inspectie hiervan.
 We denken dat het bedrijf gewoon van strategie is veranderd gedurende het jaar.
 We voegen in het model een pijl van maand naar medium toe.
+
+We vinden een dependency tussen default en contactmedium geconditoned op age en job.
+Omdat contactmedium zo sterk beïnvloed lijkt te worden door maand lijkt het ons het meest waarschijnlijk dat default wordt beïnvloed door maand.
+Het is ook niet onredelijk te stellen dat sommige maanden duurder zijn dan anderen, en dus correlleren met het aantal defaults.
+We voegen een pijl toe van maand naar default.
+
+We vinden een dependency tussen education en contact geconditioneerd op age.
+We voegen een pijl toe van education naar contact.
+
