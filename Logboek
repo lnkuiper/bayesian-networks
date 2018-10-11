@@ -19,3 +19,12 @@ Ook is er een dependency tussen education en y.
 We voegen een latent toe "willingness to take loan" en verbinden age, marital status en education hiermee.
 Deze latent verbinden we met loan en housing.
 Ook verwijderen we de directe edges die dezen hadden met loan en housing.
+
+Er bleef nog een dependency tussen wealth en contactmedium.
+Hiervoor voegen we een latent "wealth toe" en verwijderen we "willingness to take a loan" omdat deze sterk samenhangen.
+
+Nu lijken alle onbedoelde dependencies verdwenen te zijn.
+
+We testen het verwijderen van patience omdat dat effect (afhankelijkheid tussen education en duration) misschien nu verklaard zou worden via wealth, maar het lijkt dat die toch betekenisvol is.
+
+We testen of een pijl van education naar duraction direct ook kan en dat lijkt idd het geval. We verwijderen patience.
