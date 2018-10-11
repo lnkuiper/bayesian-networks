@@ -13,3 +13,9 @@ We voegen een pijl toe van education naar contact.
 
 Education en duration werden als dependent gevonden geconditioneerd op like 5 variabelen.
 We hebben een latent variabele (common cause) toegevoegd die voor geduld staat.
+
+We vinden een dependency tussen loan en housing geconditioneerd op age, job en marital status.
+Ook is er een dependency tussen education en y.
+We voegen een latent toe "willingness to take loan" en verbinden age, marital status en education hiermee.
+Deze latent verbinden we met loan en housing.
+Ook verwijderen we de directe edges die dezen hadden met loan en housing.
