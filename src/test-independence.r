@@ -1,10 +1,12 @@
 # install.packages("devtools", repos='https://cran.r-project.org/')
 # install.packages('readr', repos='https://cran.r-project.org/')
 # install_github("jtextor/dagitty/r")
+# install.packages('lavaan', repos='https://cran.r-project.org/')
 # devtools::install_github("jtextor/dagitty/r")
 
 library(devtools)
 library(dagitty)
+library(lavaan)
 library(readr)
 
 d <- read.csv("../data/bank-additional-full.csv",sep=';')
@@ -12,12 +14,12 @@ d$pdays <- NULL
 d$previous <- NULL
 d$poutcome <- NULL
 
-fileName <- '../wack-model'
+fileName <- './model.r'
 dag <- read_file(fileName)
 g <- dagitty(dag)
 
-# ici <- impliedConditionalIndependencies(g)
-sink('../data/chisq.txt')
+sink('../data/ici.txt')
+# impliedConditionalIndependencies(g)
 localTests(g,d,type="cis.chisq")
 sink()
 
