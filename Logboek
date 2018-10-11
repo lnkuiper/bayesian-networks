@@ -1,0 +1,4 @@
+We vinden een dependency tussen het contactmedium en de maand.
+Dit was niet verwacht maar lijkt wel overeen te komen met de data, na inspectie hiervan.
+We denken dat het bedrijf gewoon van strategie is veranderd gedurende het jaar.
+We voegen in het model een pijl van maand naar medium toe.
