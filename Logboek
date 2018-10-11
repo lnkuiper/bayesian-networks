@@ -34,3 +34,6 @@ Dit lijkt niet het geval. We verwijderen alle pijlen vanuit day_of_week.
 
 We testen of de pijlen uit campaign invloed hebben.
 Lijkt ook niet het geval, verwijderen de pijlen.
+
+We twijfelen aan het nut van duration.
+We kiezen ervoor om duration uit het model te gooien en volgende week te kijken of de economische waarden weer kunnen herintroduceren om 1. het model weer wat complexer te maken en 2. aan te sluiten bij de application uit onze exposee.
