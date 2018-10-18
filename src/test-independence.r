@@ -10,9 +10,16 @@ library(lavaan)
 library(readr)
 
 d <- read.csv("../data/bank-additional-full.csv",sep=';')
-d$pdays <- NULL
-d$previous <- NULL
-d$poutcome <- NULL
+# cpi <- d$cons.price.idx
+# cpi_bin <- lapply(cpi, (function (x) 1))
+# evr <- d$emp.var.rate
+# evr_bin <-lapply(evr, (function (x) 1))
+# d$emp.var.rate <- evr_bin
+# # cpi_bin
+# d$cons_price_idx <- cpi_bin
+
+# ding <- d$cons_price_idx
+# unique(lapply(ding, class))
 
 fileName <- './model.r'
 dag <- read_file(fileName)
