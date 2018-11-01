@@ -5,6 +5,7 @@
 \usepackage{enumitem}
 \usepackage{subcaption}
 \usepackage{amsmath}
+\usepackage{float}
 % !TeX spellcheck = en_GB 
 
 \title{Report: Bayesian Networks DAG Testing}
@@ -31,10 +32,13 @@ Our initial DAG as shown in \autoref{fig:initial_dag} was constructed with our p
 
 \subsection{Derived Tests}
 Conditional independencies were automatically derived using the \texttt{ImpliedLocalDependencies} function from the \texttt{dagitty} package in \texttt{R}.
+\begin{verbatim}
+INSERT TESTS HERE
+\end{verbatim}
 
 \section{Approach}
 Tests were performed automatically using the \texttt{localTests} function from the \texttt{dagitty} package.
-However, we are dealing with attributes that can take on many different values.
+However, we are dealing with attributes that can take on many different values, so we'll need to do some pre-processing first.
 \begin{description}[align=right, leftmargin=2cm, labelwidth=3cm]
 	\item[age] Discrete values between 18-85
 	\item[nr.employed] continuous values
@@ -45,47 +49,64 @@ However, we are dealing with attributes that can take on many different values.
 \end{description}
 
 \subsection{Binning}
-\begin{figure}[h]
+Because \texttt{dagitty} interprets our data as nominal, it is necessary to bin our data to allow for meaningful analysis. For each of these attributes, we inspect the histogram of value frequencies + we apply domain knowledge to obtain acceptable bins.
+
+%Voor elke subsectie nog wat tekst
+\subsubsection{Age}
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{images/age}
+	\includegraphics[width=0.4\textwidth]{images/age}
 	\caption{Distribution of age.}
 	\label{fig:age}
 \end{figure}
 
-\begin{figure}[h]
+\subsubsection{Quarterly average of number of employees}
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{images/nr_employed}
+	\includegraphics[width=0.4\textwidth]{images/nr_employed}
 	\caption{Distribution of number of employees.}
 	\label{fig:nr_employed}
 \end{figure}
 
-\begin{figure}[h]
+\subsubsection{Quarterly average of number of employees}
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{images/emp_var_rate}
+	\includegraphics[width=0.4\textwidth]{images/emp_var_rate}
 	\caption{Distribution of employment variation rate.}
 	\label{fig:emp_var_rate}
 \end{figure}
 
-\begin{figure}[h]
+\subsubsection{Consumer price index}
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{images/consumer_price_index}
+	\includegraphics[width=0.4\textwidth]{images/consumer_price_index}
 	\caption{Distribution of consumer price index.}
 	\label{fig:cons_price_idx}
 \end{figure}
 
-\begin{figure}[h]
+\subsubsection{Consumer confidence index}
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{images/consumer_confidence_index}
+	\includegraphics[width=0.4\textwidth]{images/consumer_confidence_index}
 	\caption{Distribution of consumer confidence index.}
 	\label{fig:cons_conf_idx}
 \end{figure}
 
-\begin{figure}[h]
+\subsubsection{Euribor 3 month rate}
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{images/euribor3m}
+	\includegraphics[width=0.4\textwidth]{images/euribor3m}
 	\caption{Distribution of three month euribor rate.}
 	\label{fig:euribor3m}
 \end{figure}
+
+\subsection{Testing method}
+Prioriteit van tests: ja, in volgorde van oplopend aantal conditioning variables (0 tot geen limiet)
+Runnen alles tegelijkertijd, maar voeren slechts 1 wijziging uit per keer, waarna we weer alles runnen.
+Hoe quantificeerden we de testresultaten? RMSEA. (Uitleg?)
+
 \section{Changes}
+Verwerk hier het logboek + nog uit te voeren veranderingen.
+
 \section{Revised DAG}
 \end{document}
