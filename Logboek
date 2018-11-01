@@ -39,3 +39,4 @@ We twijfelen aan het nut van duration.
 We kiezen ervoor om duration uit het model te gooien en volgende week te kijken of de economische waarden weer kunnen herintroduceren om 1. het model weer wat complexer te maken en 2. aan te sluiten bij de application uit onze exposee.
 
 Binnen leeftijd met grenzen: >=18, >25, >30, >45, >=60
+Consumer confidence: =(S3<-45)*1+(S3<-38)*1+(S3<-35)*1+(S3<0)*1
