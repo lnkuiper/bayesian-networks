@@ -1,0 +1,91 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage{amsmath}
+% !TeX spellcheck = en_GB 
+
+\title{Report: Bayesian Networks DAG Testing}
+\date{11 November 2018}
+\author{Niek Janssen (s??)\and Laurens Kuiper (s4467299)\and Ward Theunisse (s4492765)}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\newpage
+\section{Introduction}
+In this report we present the findings of testing and amending the initial model as proposed in our exposee.
+The model was iteratively tested using the $\chi^2$-test, removing and adding variables/connections at each step.
+
+\section{Initial DAG}
+Our initial DAG as shown in \autoref{fig:initial_dag} was constructed with our prior beliefs about the data.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{images/initial_dag}
+	\caption{Initial DAG as proposed in exposee.}
+	\label{fig:initial_dag}
+\end{figure}
+
+\subsection{Derived Tests}
+Conditional independencies were automatically derived using the \texttt{ImpliedLocalDependencies} function from the \texttt{dagitty} package in \texttt{R}.
+
+\section{Approach}
+Tests were performed automatically using the \texttt{localTests} function from the \texttt{dagitty} package.
+However, we are dealing with attributes that can take on many different values.
+\begin{description}[align=right, leftmargin=2cm, labelwidth=3cm]
+	\item[age] Discrete values between 18-85
+	\item[nr.employed] continuous values
+	\item[emp.var.rate] continuous values
+	\item[cons.price.idx] continuous values
+	\item[cons.conf.idx] continuous values
+	\item[euribor3m] continuous values
+\end{description}
+
+\subsection{Binning}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/age}
+	\caption{Distribution of age.}
+	\label{fig:age}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/nr_employed}
+	\caption{Distribution of number of employees.}
+	\label{fig:nr_employed}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/emp_var_rate}
+	\caption{Distribution of employment variation rate.}
+	\label{fig:emp_var_rate}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/consumer_price_index}
+	\caption{Distribution of consumer price index.}
+	\label{fig:cons_price_idx}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/consumer_confidence_index}
+	\caption{Distribution of consumer confidence index.}
+	\label{fig:cons_conf_idx}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/euribor3m}
+	\caption{Distribution of three month euribor rate.}
+	\label{fig:euribor3m}
+\end{figure}
+\section{Changes}
+\section{Revised DAG}
+\end{document}
