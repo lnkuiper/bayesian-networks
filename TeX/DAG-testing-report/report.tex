@@ -10,7 +10,7 @@
 \usepackage{multirow}
 \usepackage{float}
 \usepackage{tabularx}
-\usepackage[compact]{titlesec}
+%\usepackage[compact]{titlesec}
 % !TeX spellcheck = en_GB 
 
 \title{Report: Bayesian Networks DAG Testing}
@@ -274,7 +274,7 @@ version of this DAG is shown in the appendix (\autoref{sec:final_dag}
 	\label{fig:final_dag_small}
 \end{figure}
 
-\subsection{Conclusion}
+\subsection{Final testing results}
 The final testing values can be found in \autoref{sec:final_test_results}.
 Because we focused conditional independencies with an RMSEA value greater than 0.05, many independencies have disappeared.
 Mainly, economic variables have been connected with many other variables.
@@ -284,6 +284,7 @@ Still, some independencies with an RMSEA value $\ge 0.5$ remain.
 The RMSEA values that stand out the most are associated with the \textit{marital} attribute in combination with economic variables.
 We are convinced that these are coincidental, an artifact of our binning, or an artifact of change in the marketing strategy of the bank, and that no new edges or latent variables should be introduced to explain them.
 
+\subsection{Conclusion}
 We are happy with our final DAG, not just because it deals with most of the high RMSEA values that we found, and we feel that the edges drawn can be explained with reason.
 
 Finally, we intended to analyse our latent variable \textit{wealth} using the \texttt{lavaan} package, but since it expects different input than \texttt{dagitty}, we did not have time to do so.
@@ -477,6 +478,5 @@ education _||_ nr.employed                              0.03035075  545.1620   1
 emp.var.rate _||_ marital | age, education, job         0.12642528 2417.9671 1208  3.182673e-83
 marital _||_ nr.employed | age, education, job          0.12932179 1626.0104  831  6.335085e-54
 \end{verbatim}
-
 
 \end{document}
