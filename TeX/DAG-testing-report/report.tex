@@ -208,14 +208,31 @@ and/or has a default.
     nr.employed & housing \\ 
     cons.conf.idx & housing \\ 
     cons.price.idx & housing \\ 
+    \medskip
     emp.var.rate & loan \\
     nr.employed & loan \\ 
     cons.conf.idx & loan \\ 
     cons.price.idx & loan \\ 
+    \medskip
     emp.var.rate & default \\
     nr.employed & default \\ 
     cons.conf.idx & default \\ 
     cons.price.idx & default \\ 
+\end{tabular}
+
+\bigskip
+The economical variables also influence eachother. In short: The employment
+influences the consumer indexes. This is because the consumer economics do
+better when the job market performs better. 
+
+\medskip
+\begin{tabular}{ll}
+    emp.var.rate & nr.employed \\
+    emp.var.rate & cons.price.idx \\
+    emp.var.rate & cons.conf.idx \\
+    nr.employed & cons.price.idx \\ 
+    nr.employed & cons.conf.idx \\ 
+    cons.price.idx & cons.conf.idx \\ 
 \end{tabular}
 
 \bigskip
@@ -228,9 +245,10 @@ has two bins, this made the LocalTests function fail. Because the Euribor3m
 variable only influences the other economical variables, we could easily delete
 it. So we did. 
 
-
-
-We vinden vrij hoge RMSEA waarden tussen marital en economische variabelen, geconditioneerd op andere economische variabelen. Dit is een gekke dependency. We vermoeden dat de strategie van het bedrijf is veranderd over de tijd, en dat ze meer/minder getrouwde/gescheiden mensen zijn gaan bellen.
+We found pretty high RMSEA values between marital and economical variables,
+conditioned on other economical variables. We think this is a very illogical
+dependency, and suspect this is because the strategy of the company has shifted
+over time, so they called more people with other marital statusses. 
 
 \section{Revised DAG}
 
