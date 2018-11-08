@@ -67,6 +67,23 @@ our data to allow for meaningful analysis. For each of these attributes, we
 inspect the histogram of value frequencies, and we apply domain knowledge to obtain
 acceptable bins.
 
+\subsection{Binning}
+We binned the data in following bins:
+
+\medskip
+\begin{tabular}{ll}
+	\textbf{Variable}           & \textbf{Split on} \\
+	Age                         & 18, 25, 30, 45, 60 \\
+	Consumer confidence         & 35, 38, 45 \\
+	Price index \ 1000          & 92.6, 93.3, 93.6, 94.3 \\
+	Empl. var. rate             & -0.5, 0.5, 2.1 \\
+	Euribor \ 1000              & 3 \\
+	Nr. employed                & 5050, 5150 \\
+\end{tabular}
+
+\medskip
+For age, shown in \autoref{fig:age}, we used our domain knowledge to choose stages of life ($<18, 18-25, 26-30, ..., >60$), whereas for the economic variables we chose bins that seemed fit the data. For euribor, shown in \autoref{fig:euribor3m}, we only chose 2 bins, because there was a big gap in the middle.
+
 \newpage
 %Voor elke subsectie nog wat tekst
 \subsubsection{Age}
@@ -118,22 +135,6 @@ acceptable bins.
 \end{figure}
 
 \newpage
-\subsection{Binning}
-We binned the data in following bins:
-
-\medskip
-\begin{tabular}{ll}
-	\textbf{Variable}           & \textbf{Split on} \\
-	Age                         & 18, 25, 30, 45, 60 \\
-	Consumer confidence         & 35, 38, 45 \\
-	Price index \ 1000          & 92.6, 93.3, 93.6, 94.3 \\
-	Empl. var. rate             & -0.5, 0.5, 2.1 \\
-	Euribor \ 1000              & 3 \\
-	Nr. employed                & 5050, 5150 \\
-\end{tabular}
-
-For age, we used our own knowledge, whereas for the economic variables we chose bins that seemed fit the data.
-
 \subsection{Testing strategy}
 An iterative strategy was applied. In each iteration we ran \texttt{localTests}, starting with parameter \texttt{max.conditioning.variables} set to 0. We focused on the highest RMSEA value, applying a change to the model each time, and running the function again. This was repeated until we were satisfied (RMSEA values $<0.05$, unless independency was deemed illogical), at which point the parameter was incremented by 1, and the process was repeated.
 
@@ -282,6 +283,10 @@ We believe this was the right thing to do because the overall state of the econo
 Still, some independencies with an RMSEA value $\ge 0.5$ remain.
 The RMSEA values that stand out the most are associated with the \textit{marital} attribute in combination with economic variables.
 We are convinced that these are coincidental, an artifact of our binning, or an artifact of change in the marketing strategy of the bank, and that no new edges or latent variables should be introduced to explain them.
+
+We are happy with our final DAG, not just because it deals with most of the high RMSEA values that we found, and we feel that the edges drawn can be explained with reason.
+
+Finally, we intended to analyse our latent variable \textit{wealth} using the \texttt{lavaan} package, but since it expects different input than \texttt{dagitty}, we did not have time to do so.
 
 \newpage
 \end{multicols}
