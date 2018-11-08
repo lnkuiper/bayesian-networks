@@ -10,7 +10,7 @@
 \usepackage{multirow}
 \usepackage{float}
 \usepackage{tabularx}
-%\usepackage[compact]{titlesec}
+\usepackage[compact]{titlesec}
 % !TeX spellcheck = en_GB 
 
 \title{Report: Bayesian Networks DAG Testing}
@@ -49,7 +49,7 @@ The function found a large amount of independencies, most of which are associate
 \section{Approach}
 Tests were performed automatically using the \texttt{localTests} function from
 the \texttt{dagitty} package.  However, the data has some attributes that can
-take on many different values. This would cause issues, therefore, pre-processing was performed.
+take on many different values. This would cause issues, which is why we performed some pre-processing. These are the attributes for which this was the case:
 
 \medskip
 \begin{tabular}{ll}
@@ -63,7 +63,7 @@ take on many different values. This would cause issues, therefore, pre-processin
 \end{tabular}
 
 \medskip
-All other attributes were nominal values related to social and economical status of the person.
+\noindent All other attributes were nominal values related to social and economical status of the person.
 
 \subsection{Data analysis}
 Because \texttt{dagitty} interprets our data as nominal, it is necessary to bin
@@ -86,7 +86,7 @@ We binned the data in following bins:
 \end{tabular}
 
 \medskip
-For age, shown in \autoref{fig:age}, we used our domain knowledge to choose stages of life ($<18, 18-25, 26-30, ..., >60$), whereas for the economic variables we chose bins that seemed fit the data. For euribor, shown in \autoref{fig:euribor3m}, we only chose 2 bins, because there was a big gap in the middle.
+For age, shown in \autoref{fig:age}, we used our domain knowledge to choose stages of life ($<18, 18-25, 26-30, ..., >60$), whereas for the economic variables we chose bins that seemed fit the data. For euribor, shown in \autoref{fig:euribor3m}, we only chose 2 bins, because there was a big gap in the middle of the range, resulting in 2 clusters.
 
 \newpage
 %Voor elke subsectie nog wat tekst
@@ -140,7 +140,7 @@ For age, shown in \autoref{fig:age}, we used our domain knowledge to choose stag
 
 \newpage
 \subsection{Testing strategy}
-An iterative strategy was applied. In each iteration we ran \texttt{localTests}, starting with parameter \texttt{max.conditioning.variables} set to 0. We focused on the highest RMSEA value, applying a change to the model each time, and running the function again. This was repeated until we were satisfied (RMSEA values $<0.05$, unless independency was deemed illogical), at which point the parameter was incremented by 1, and the process was repeated.
+An iterative strategy was applied. In each iteration we ran \texttt{localTests}, starting with parameter \texttt{max.conditioning.variables} set to 0. We focused on the highest RMSEA value, applying a change to the model each time, and running the function again. This was repeated until we were satisfied (RMSEA values $<0.05$, unless independency was deemed illogical), at which point we incremented the maximum amount of conditioning variables by 1, and repeated the process.
 
 \section{Changes}
 A changelog of the findings of our testing strategy is described in the subsections in this section. 
