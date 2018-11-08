@@ -62,7 +62,7 @@ take on many different values, so we'll need to do some pre processing first.
 Because \texttt{dagitty} interprets our data as nominal, it is necessary to bin
 our data to allow for meaningful analysis. For each of these attributes, we
 inspect the histogram of value frequencies + we apply domain knowledge to obtain
-acceptable bins.
+acceptable bins. We explain our binning decisions in the next section.
 
 %Voor elke subsectie nog wat tekst
 \subsubsection{Age}
@@ -168,7 +168,7 @@ Additionally, the vertexes day\_of\_week and campaign got deleted because they
 were not meaningfull. 
 
 \subsection{Binning}
-We binned the following data in bins:
+We binned the data in following bins:
 
 \medskip
 \begin{tabular}{ll}
@@ -180,6 +180,8 @@ We binned the following data in bins:
     Euribor \ 1000              & 3 \\
     Nr. employed                & 5050, 5150 \\
 \end{tabular}
+
+For age, we used our own knowledge, whereas for the economic variables we chose bins that seemed fit the data.
 
 \subsection{Economical variables}
 Because we are not economists, we did a little trial and error with the
