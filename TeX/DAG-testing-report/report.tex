@@ -1,28 +1,192 @@
 \documentclass[11pt]{article}
 \usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[toc, page]{appendix}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{subcaption}
 \usepackage{amsmath}
+\usepackage{multicol}
 \usepackage{float}
 % !TeX spellcheck = en_GB 
 
 \title{Report: Bayesian Networks DAG Testing}
 \date{11 November 2018}
-\author{Niek Janssen (s??)\and Laurens Kuiper (s4467299)\and Ward Theunisse (s4492765)}
+\author{Niek Janssen (s4297091)\and Laurens Kuiper (s4467299)\and Ward Theunisse (s4492765)}
 
 \begin{document}
 \maketitle
 \thispagestyle{empty}
-\newpage
+\begin{multicols}{2}
 \section{Introduction}
-In this report we present the findings of testing and amending the initial model as proposed in our exposee.
-The model was iteratively tested using the $\chi^2$-test, removing and adding variables/connections at each step.
+In this report we present the findings of testing and amending the initial model
+as proposed in our exposee.  The model was iteratively tested using the
+$\chi^2$-test, removing and adding variables/connections at each step.
 
 \section{Initial DAG}
-Our initial DAG as shown in \autoref{fig:initial_dag} was constructed with our prior beliefs about the data.
+Our initial DAG as shown in \autoref{fig:initial_dag_small} was constructed
+with our prior beliefs about the data. A bigger version of this DAG is shown
+in the appendix (\autoref{sec:initial_dag} \autoref{fig:initial_dag}). 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/initial_dag}
+	\caption{Initial DAG as proposed in exposee.}
+	\label{fig:initial_dag_small}
+\end{figure}
+
+\subsection{Derived Tests}
+Conditional independencies were automatically derived using the
+\texttt{ImpliedLocalDependencies} function from the \texttt{dagitty} package in
+\texttt{R}. The result of this can be found in 
+\autoref{sec:initial_conditional_dependencies}. 
+
+\section{Approach}
+Tests were performed automatically using the \texttt{localTests} function from
+the \texttt{dagitty} package.  However, we are dealing with attributes that can
+take on many different values, so we'll need to do some pre-processing first.
+
+    \begin{tabular}{ll}
+        \textbf{variable} & \textbf{type} \\
+        age & Discrete values between 18-85 \\
+        nr.employed & continuous values \\
+        emp.var.rate & continuous values \\
+        cons.price.idx & continuous values \\
+        cons.conf.idx & continuous values \\
+        euribor3m & continuous values \\
+    \end{tabular}
+
+\subsection{Binning}
+Because \texttt{dagitty} interprets our data as nominal, it is necessary to bin
+our data to allow for meaningful analysis. For each of these attributes, we
+inspect the histogram of value frequencies + we apply domain knowledge to obtain
+acceptable bins.
+
+%Voor elke subsectie nog wat tekst
+\subsubsection{Age}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/age}
+	\caption{Distribution of age.}
+	\label{fig:age}
+\end{figure}
+
+\subsubsection{Quarterly average of number of employees}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/nr_employed}
+	\caption{Distribution of number of employees.}
+	\label{fig:nr_employed}
+\end{figure}
+
+\subsubsection{Quarterly average of number of employees}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/emp_var_rate}
+	\caption{Distribution of employment variation rate.}
+	\label{fig:emp_var_rate}
+\end{figure}
+
+\subsubsection{Consumer price index}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/consumer_price_index}
+	\caption{Distribution of consumer price index.}
+	\label{fig:cons_price_idx}
+\end{figure}
+
+\subsubsection{Consumer confidence index}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/consumer_confidence_index}
+	\caption{Distribution of consumer confidence index.}
+	\label{fig:cons_conf_idx}
+\end{figure}
+
+\subsubsection{Euribor 3 month rate}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/euribor3m}
+	\caption{Distribution of three month euribor rate.}
+	\label{fig:euribor3m}
+\end{figure}
+
+\section{Changes}
+We firstly looked at the unconditioned dependencies and tried to add them to our
+model. After that, we did the same with the conditioned variables. A changelog
+of what we did can be found below. 
+
+\subsection{Contact type}
+When we first tested the independencies of our DAG, we found a very strong
+dependency between the contact type and the month. After a quick look, this
+seemed to be corresponding to the data we have, so we added an arrow from month
+to contact type. 
+
+Before we deleted the contact type, though, we found a strong dependency between
+default and contact medium, conditioned on age and job. Because the month is
+strongly influential on the contact type, we thought it would be most likely
+that the month would have a connection with default. We thought it would also be
+logical that some months would be more expensive than others, so in these months
+people are more likely to have a default. 
+
+We also found a dependency from education to contact. We might be able to
+explain this because people with certain jobs need a mobile phone to work
+efficiently. 
+
+Later on in the process, we found that the contact type was
+changed only once in time. The first two years of the data collection was done
+via landline, while the last three years all calls were made via a mobile phone.
+We finally decided to delete the contact type alltogether. 
+
+\subsection{Latent variables}
+Education and duration were dependent on eachother, conditioned on five other
+variables. We added a latent variable called patience. This latent variable
+disappeared again with the deletion of duration. 
+
+We also found a dependency between loan and housing, conditioned on age, job and
+marital status. Another dependency between education and y exists. Because of
+this, we add a latent variable "willingness to take a loan". This latent
+variable has connections from age, marital status and education, and has
+connections to housing, loan and y. All direct connections between these
+variables were removed. This latent variable later became wealth, where it als
+got connections to marital status and default. 
+
+At first, we thought we could remove patience because the latent variable wealth
+would suffice, but this wasn't the case. We could, however, replace it with a
+direct connection between education to duration. 
+
+\subsection{More deletions}
+Later on, we found that duration is actually dependent on y. This is because,
+when people decide that they want a loan (y=true), the call becomes much longer
+because of the further administration that has to be done over the phone. This
+made us delete the duration alltogether. 
+
+A few other arrows and vertexes got deleted because they were not meaningfull:
+
+\begin{itemize}
+    \item the vertex day\_of\_week
+    \item the vertex campaign
+\end{itemize}
+
+\subsection{Binning}
+We binned the following data in bins:
+
+\begin{tabular}{ll}
+    \textbf{Variable}           & \textbf{Split on} \\
+    Age                         & 18, 25, 30, 45, 60 \\
+    Consumer confidence         & 35, 38, 45 \\
+    Price index \ 1000          & 92.6, 93.3, 93.6, 94.3 \\
+    Employment variation rate   & -0.5, 0.5, 2.1 \\
+    Euribor \ 1000              & 3 \\
+    Nr. employed                & 5050, 5150 \\
+\end{tabular}
+
+\section{Revised DAG}
+
+\end{multicols}
+\appendix
+\section{Initial DAG}
+\label{sec:initial_dag}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{images/initial_dag}
@@ -30,8 +194,8 @@ Our initial DAG as shown in \autoref{fig:initial_dag} was constructed with our p
 	\label{fig:initial_dag}
 \end{figure}
 
-\subsection{Derived Tests}
-Conditional independencies were automatically derived using the \texttt{ImpliedLocalDependencies} function from the \texttt{dagitty} package in \texttt{R}.
+\section{Initial conditional dependencies}
+\label{sec:initial_conditional_dependencies}
 {\tiny\begin{verbatim}
 consumer confidence index _||_ consumer price index
 consumer confidence index _||_ contact type (medium)
@@ -176,77 +340,4 @@ previous campaign outcome _||_ job
 OUTCOME _||_ education | age, credit in default?, employment variation, has housing loan?, has personal loan?, job, number of employees
 \end{verbatim}}
 
-\section{Approach}
-Tests were performed automatically using the \texttt{localTests} function from the \texttt{dagitty} package.
-However, we are dealing with attributes that can take on many different values, so we'll need to do some pre-processing first.
-\begin{description}[align=right, leftmargin=2cm, labelwidth=3cm]
-	\item[age] Discrete values between 18-85
-	\item[nr.employed] continuous values
-	\item[emp.var.rate] continuous values
-	\item[cons.price.idx] continuous values
-	\item[cons.conf.idx] continuous values
-	\item[euribor3m] continuous values
-\end{description}
-
-\subsection{Binning}
-Because \texttt{dagitty} interprets our data as nominal, it is necessary to bin our data to allow for meaningful analysis. For each of these attributes, we inspect the histogram of value frequencies + we apply domain knowledge to obtain acceptable bins.
-
-%Voor elke subsectie nog wat tekst
-\subsubsection{Age}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\textwidth]{images/age}
-	\caption{Distribution of age.}
-	\label{fig:age}
-\end{figure}
-
-\subsubsection{Quarterly average of number of employees}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\textwidth]{images/nr_employed}
-	\caption{Distribution of number of employees.}
-	\label{fig:nr_employed}
-\end{figure}
-
-\subsubsection{Quarterly average of number of employees}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\textwidth]{images/emp_var_rate}
-	\caption{Distribution of employment variation rate.}
-	\label{fig:emp_var_rate}
-\end{figure}
-
-\subsubsection{Consumer price index}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\textwidth]{images/consumer_price_index}
-	\caption{Distribution of consumer price index.}
-	\label{fig:cons_price_idx}
-\end{figure}
-
-\subsubsection{Consumer confidence index}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\textwidth]{images/consumer_confidence_index}
-	\caption{Distribution of consumer confidence index.}
-	\label{fig:cons_conf_idx}
-\end{figure}
-
-\subsubsection{Euribor 3 month rate}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\textwidth]{images/euribor3m}
-	\caption{Distribution of three month euribor rate.}
-	\label{fig:euribor3m}
-\end{figure}
-
-\subsection{Testing method}
-Prioriteit van tests: ja, in volgorde van oplopend aantal conditioning variables (0 tot geen limiet)
-Runnen alles tegelijkertijd, maar voeren slechts 1 wijziging uit per keer, waarna we weer alles runnen.
-Hoe quantificeerden we de testresultaten? RMSEA. (Uitleg?)
-
-\section{Changes}
-Verwerk hier het logboek + nog uit te voeren veranderingen.
-
-\section{Revised DAG}
 \end{document}
