@@ -143,7 +143,8 @@ We finally decided to delete the contact type altogether.
 \subsection{Latent variables}
 Education and duration were dependent on each other, conditioned on five other
 variables. We added a latent variable called patience. This latent variable
-disappeared again with the deletion of duration. 
+disappeared again when we deleted duration. We removed duration because it highly affects the output target, but it is only known after a call is performed, thus not offering any predictive / actionable information.
+The authors of the paper that our data features in state that " this input should only be included for benchmark purposes and should be discarded if the intention is to have a realistic predictive model."
 
 We also found a dependency between loan and housing, conditioned on age, job and
 marital status. Another dependency between education and y exists. Because of
@@ -212,7 +213,7 @@ and/or has a default.
     emp.var.rate & loan \\
     nr.employed & loan \\ 
     cons.conf.idx & loan \\ 
-    cons.price.idx & loan \\ 
+    cons.price.idx & loan \\
     \medskip
     emp.var.rate & default \\
     nr.employed & default \\ 
@@ -236,6 +237,7 @@ better when the job market performs better.
     cons.price.idx & cons.conf.idx \\ 
 \end{tabular}
 
+
 \bigskip
 Euribor3m is the average interest of European banks. Banks also change their
 interest based on the current economical climate. Because of this, we created
@@ -246,10 +248,12 @@ has two bins, this made the LocalTests function fail. Because the Euribor3m
 variable only influences the other economical variables, we could easily delete
 it. So we did. 
 
+
+
 We found pretty high RMSEA values between marital and economical variables,
 conditioned on other economical variables. We think this is a very illogical
 dependency, and suspect this is because the strategy of the company has shifted
-over time, so they called more people with other marital statusses. 
+over time, so they called more people with other marital statuses. 
 
 \section{Revised DAG}
 
