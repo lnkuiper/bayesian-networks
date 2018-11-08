@@ -22,7 +22,7 @@
 \begin{multicols}{2}
 \section{Introduction}
 In this report we present the findings of testing and amending the initial model
-as proposed in our expose.  The model was iteratively tested using the
+as proposed in our exposee.  The model was iteratively tested using the
 $\chi^2$-test, removing and adding variables/connections at each step.
 
 \section{Initial DAG}
@@ -114,13 +114,13 @@ acceptable bins.
 \end{figure}
 
 \section{Changes}
-We firstly looked at the unconditioned dependencies and tried to add them to our
-model. After that, we did the same with the conditioned variables. A changelog
+We firstly looked at the unconditioned dependencies and added these to our
+model when needed. After that, we did the same with the conditioned variables. A changelog
 of what we did can be found below. 
 
 \subsection{Contact type}
 When we first tested the independencies of our DAG, we found a very strong
-dependency between the contact type and the month. After a quick look, this
+dependency between the contact type variable (indicating whether the consumer reached on their cellphone or landline) and the month. After a quick look, this
 seemed to be corresponding to the data we have, so we added an arrow from month
 to contact type. 
 
@@ -136,7 +136,7 @@ explain this because people with certain jobs need a mobile phone to work
 efficiently. 
 
 Later on in the process, we found that the contact type was
-changed only once in time. The first two years of the data collection was done
+continually the same over time, with a single point in time when it switched. The first two years of the data collection was done
 via landline, while the last three years all calls were made via a mobile phone.
 We finally decided to delete the contact type altogether. 
 
