@@ -62,4 +62,11 @@ LocalTests faalt omdat euribor3m maar 2 unieke waarden heeft (ook vanwege binnin
 
 We vinden vrij hoge RMSEA waarden tussen marital en economische variabelen, geconditioneerd op andere economische variabelen. Dit is een gekke dependency. We vermoeden dat de strategie van het bedrijf is veranderd over de tijd, en dat ze meer/minder getrouwde/gescheiden mensen zijn gaan bellen.
 
-Pijl van price index naar loan vanwege hoge RMSEA waarde. Intuitie: als prijzen hoger zijn hebben mensen sneller een loan nodig.
+Pijl van price index en confidence naar loan vanwege hoge RMSEA waarde. Intuitie: als prijzen hoger zijn hebben mensen sneller een loan nodig.
+
+Pijl van price indec en confidence naar housing vanwege rmsea. Intuitie: hogere confidence, meer huizenkoop.
+
+Pijl van emp.var.rate naar default: als delta laag is dan meer mensen in default (failliet).
+Pijl van emp.var.rate naar housing en default: als delta hoog dan meer mensen stabiele baan, en dan kunnen ze een hypotheek/lening afsluiten.
+
+Omdat zowel emp.var.rate en nr.employed indicatoren zijn voor het aantal werkenden verbinden we ook nr.employed met housing en loan, om dezelfde reden dat we emp.var.rate met deze verbonden.

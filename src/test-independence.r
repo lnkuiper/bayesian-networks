@@ -12,13 +12,16 @@ library(readr)
 d <- read.csv('../data/bank-additional-full-binned.csv',sep=',')
 str(d)
 
-fileName <- './initial_model.r'
+fileName <- './model.r'
 dag <- read_file(fileName)
 g <- dagitty(dag)
+# mdl <- lavaanify(g, fixed.x=FALSE)
 
 sink('../data/ici.txt')
-impliedConditionalIndependencies(g)
-# localTests(g,d,type='cis.chisq')
+# impliedConditionalIndependencies(g)
+localTests(g,d,type='cis.chisq', max.conditioning.variables=20)
+# fit <- cfa(mdl, data=d)
+# summary(fit, fit.measures=TRUE)
 sink()
 
 # png('age.png')

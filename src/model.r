@@ -1,48 +1,62 @@
 dag {
-age [pos="-0.552,-1.832"]
-campaign [pos="0.264,0.682"]
-cons.conf.idx [pos="-0.064,-1.586"]
-cons.price.idx [pos="0.071,-1.673"]
-day_of_week [pos="0.270,0.436"]
-default [pos="-0.634,0.236"]
-duration [pos="0.264,0.992"]
-education [pos="-0.922,-1.508"]
-emp.var.rate [pos="0.063,-1.305"]
-euribor3m [pos="-0.124,-1.685"]
-housing [pos="-0.265,-0.727"]
-job [pos="-0.252,-1.174"]
-loan [pos="-0.977,0.013"]
-marital [pos="-0.448,-0.768"]
-month [pos="-0.082,-0.438"]
-nr.employed [pos="0.082,-1.000"]
-wealth [latent,pos="-0.881,-0.646"]
-y [outcome,pos="-0.575,1.126"]
-age -> default
+age [pos="-0.496,-1.985"]
+cons.conf.idx [pos="-0.356,-0.549"]
+cons.price.idx [pos="-0.091,-1.071"]
+default [pos="-0.768,0.587"]
+education [pos="-0.778,-1.835"]
+emp.var.rate [pos="-0.072,-1.926"]
+housing [pos="-0.441,0.108"]
+job [pos="-0.418,-1.487"]
+loan [pos="-0.672,-0.240"]
+marital [pos="-0.624,-0.838"]
+nr.employed [pos="-0.306,-1.799"]
+wealth [latent,pos="-0.873,-1.059"]
+y [outcome,pos="-0.478,1.050"]
 age -> education
+age -> housing
 age -> job
 age -> marital
 age -> wealth
 age -> y
-cons.price.idx -> emp.var.rate
+cons.conf.idx -> default
+cons.conf.idx -> housing
+cons.conf.idx -> loan
+cons.conf.idx -> y
+cons.price.idx -> cons.conf.idx
+cons.price.idx -> default
+cons.price.idx -> housing
+cons.price.idx -> loan
 cons.price.idx -> y
 default -> y
 education -> default
 education -> job
 education -> marital
 education -> wealth
+emp.var.rate -> cons.conf.idx
+emp.var.rate -> cons.price.idx
+emp.var.rate -> default
+emp.var.rate -> housing
+emp.var.rate -> job
+emp.var.rate -> loan
+emp.var.rate -> nr.employed
 housing -> default
-housing <-> y
+housing -> y
 job -> default
 job -> marital
 job -> wealth
 loan -> default
 loan -> y
-marital -> default
-marital <-> wealth
-month -> nr.employed
-month -> y
+marital -> housing
+marital -> y
+nr.employed -> cons.conf.idx
+nr.employed -> cons.price.idx
+nr.employed -> default
+nr.employed -> housing
+nr.employed -> job
+nr.employed -> loan
 wealth -> default
 wealth -> housing
 wealth -> loan
+wealth -> marital
 wealth -> y
 }
