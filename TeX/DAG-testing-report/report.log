@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.7)  8 NOV 2018 16:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.7)  8 NOV 2018 16:32
 entering extended mode
 **./report.tex
 (report.tex
@@ -483,99 +483,99 @@ Overfull \hbox (11.98888pt too wide) in paragraph at lines 54--63
 [][] 
  []
 
-<images/age.png, id=105, 481.8pt x 481.8pt>
-File: images/age.png Graphic file (type png)
-<use images/age.png>
-Package pdftex.def Info: images/age.png  used on input line 74. on input line 7
-4.
-Package pdftex.def Info: Requested size: 193.47578pt x 193.4738pt on input line
- 74.
-<images/nr_employed.png, id=106, 481.8pt x 481.8pt>
-File: images/nr_employed.png Graphic file (type png)
-<use images/nr_employed.png>
-Package pdftex.def Info: images/nr_employed.png  used on input line 82. on inpu
-t line 82.
-Package pdftex.def Info: Requested size: 193.47578pt x 193.4738pt on input line
- 82.
 [1
 
 {C:/Users/laure/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./images/in
-itial_dag.png> <./images/age.png>]
-<images/emp_var_rate.png, id=125, 481.8pt x 481.8pt>
+itial_dag.png>]
+<images/age.png, id=121, 481.8pt x 481.8pt>
+File: images/age.png Graphic file (type png)
+<use images/age.png>
+Package pdftex.def Info: images/age.png  used on input line 75. on input line 7
+5.
+Package pdftex.def Info: Requested size: 159.62085pt x 159.61937pt on input lin
+e 75.
+<images/nr_employed.png, id=122, 481.8pt x 481.8pt>
+File: images/nr_employed.png Graphic file (type png)
+<use images/nr_employed.png>
+Package pdftex.def Info: images/nr_employed.png  used on input line 83. on inpu
+t line 83.
+Package pdftex.def Info: Requested size: 159.62085pt x 159.61937pt on input lin
+e 83.
+<images/emp_var_rate.png, id=123, 481.8pt x 481.8pt>
 File: images/emp_var_rate.png Graphic file (type png)
 <use images/emp_var_rate.png>
-Package pdftex.def Info: images/emp_var_rate.png  used on input line 90. on inp
-ut line 90.
-Package pdftex.def Info: Requested size: 193.47578pt x 193.4738pt on input line
- 90.
-<images/consumer_price_index.png, id=126, 481.8pt x 481.8pt>
+Package pdftex.def Info: images/emp_var_rate.png  used on input line 91. on inp
+ut line 91.
+Package pdftex.def Info: Requested size: 159.62085pt x 159.61937pt on input lin
+e 91.
+<images/consumer_price_index.png, id=124, 481.8pt x 481.8pt>
 File: images/consumer_price_index.png Graphic file (type png)
 <use images/consumer_price_index.png>
-Package pdftex.def Info: images/consumer_price_index.png  used on input line 98
-. on input line 98.
-Package pdftex.def Info: Requested size: 193.47578pt x 193.4738pt on input line
- 98.
-<images/consumer_confidence_index.png, id=127, 481.8pt x 481.8pt>
+Package pdftex.def Info: images/consumer_price_index.png  used on input line 99
+. on input line 99.
+Package pdftex.def Info: Requested size: 159.62085pt x 159.61937pt on input lin
+e 99.
+<images/consumer_confidence_index.png, id=125, 481.8pt x 481.8pt>
 File: images/consumer_confidence_index.png Graphic file (type png)
 <use images/consumer_confidence_index.png>
 Package pdftex.def Info: images/consumer_confidence_index.png  used on input li
-ne 106. on input line 106.
-Package pdftex.def Info: Requested size: 193.47578pt x 193.4738pt on input line
- 106.
-<images/euribor3m.png, id=128, 481.8pt x 481.8pt>
+ne 107. on input line 107.
+Package pdftex.def Info: Requested size: 159.62085pt x 159.61937pt on input lin
+e 107.
+<images/euribor3m.png, id=126, 481.8pt x 481.8pt>
 File: images/euribor3m.png Graphic file (type png)
 <use images/euribor3m.png>
-Package pdftex.def Info: images/euribor3m.png  used on input line 114. on input
- line 114.
-Package pdftex.def Info: Requested size: 193.47578pt x 193.4738pt on input line
- 114.
-
-Overfull \hbox (3.16805pt too wide) in paragraph at lines 123--132
+Package pdftex.def Info: images/euribor3m.png  used on input line 115. on input
+ line 115.
+Package pdftex.def Info: Requested size: 159.62085pt x 159.61937pt on input lin
+e 115.
+ [2 <./images/age.png> <./images/nr_employed.png> <./images/emp_var_rate.png> <
+./images/consumer_price_index.png> <./images/consumer_confidence_index.png> <./
+images/euribor3m.png>]
+Overfull \hbox (3.16805pt too wide) in paragraph at lines 125--134
 [][] 
  []
 
-[2 <./images/nr_employed.png> <./images/emp_var_rate.png> <./images/consumer_pr
-ice_index.png> <./images/consumer_confidence_index.png>] [3 <./images/euribor3m
-.png>]
+[3]
 <images/final_dag.png, id=150, 1076.52188pt x 643.6547pt>
 File: images/final_dag.png Graphic file (type png)
 <use images/final_dag.png>
-Package pdftex.def Info: images/final_dag.png  used on input line 269. on input
- line 269.
+Package pdftex.def Info: images/final_dag.png  used on input line 271. on input
+ line 271.
 Package pdftex.def Info: Requested size: 193.47578pt x 115.67606pt on input lin
-e 269.
- [4 <./images/final_dag.png>] [5]
+e 271.
+ [4 <./images/final_dag.png>]
 File: images/initial_dag.png Graphic file (type png)
 <use images/initial_dag.png>
-Package pdftex.def Info: images/initial_dag.png  used on input line 291. on inp
-ut line 291.
+Package pdftex.def Info: images/initial_dag.png  used on input line 293. on inp
+ut line 293.
 Package pdftex.def Info: Requested size: 386.95897pt x 260.5098pt on input line
- 291.
+ 293.
 File: images/final_dag.png Graphic file (type png)
 <use images/final_dag.png>
-Package pdftex.def Info: images/final_dag.png  used on input line 300. on input
- line 300.
+Package pdftex.def Info: images/final_dag.png  used on input line 302. on input
+ line 302.
 Package pdftex.def Info: Requested size: 386.95897pt x 231.36194pt on input lin
-e 300.
- [6] [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 475.
- [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 475.
+e 302.
+ [5] [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 477.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 477.
  (report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 475.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 475.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 477.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 477.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: B7525C7A2DD08811BC7D84E8A340AFA7;1541.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 475.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 477.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 454 ({)
+### simple group (level 1) entered at line 456 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 8219 strings out of 493312
- 124174 string characters out of 3138900
- 232259 words of memory out of 3000000
+ 8218 strings out of 493312
+ 124168 string characters out of 3138900
+ 232260 words of memory out of 3000000
  11637 multiletter control sequences out of 15000+200000
  10391 words of font info for 38 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -591,9 +591,9 @@ ic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb
 >
-Output written on report.pdf (8 pages, 540590 bytes).
+Output written on report.pdf (7 pages, 539685 bytes).
 PDF statistics:
- 228 PDF objects out of 1000 (max. 8388607)
- 43 named destinations out of 1000 (max. 500000)
+ 223 PDF objects out of 1000 (max. 8388607)
+ 42 named destinations out of 1000 (max. 500000)
  233 words of extra memory for PDF output out of 10000 (max. 10000000)
 
