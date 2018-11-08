@@ -176,7 +176,7 @@ We binned the following data in bins:
     Age                         & 18, 25, 30, 45, 60 \\
     Consumer confidence         & 35, 38, 45 \\
     Price index \ 1000          & 92.6, 93.3, 93.6, 94.3 \\
-    Employment variation rate   & -0.5, 0.5, 2.1 \\
+    Empl. var. rate             & -0.5, 0.5, 2.1 \\
     Euribor \ 1000              & 3 \\
     Nr. employed                & 5050, 5150 \\
 \end{tabular}
@@ -228,6 +228,7 @@ better when the job market performs better.
 
 \medskip
 \begin{tabular}{ll}
+    \textbf{from} & \textbf{to} \\
     emp.var.rate & nr.employed \\
     emp.var.rate & cons.price.idx \\
     emp.var.rate & cons.conf.idx \\
@@ -255,6 +256,19 @@ dependency, and suspect this is because the strategy of the company has shifted
 over time, so they called more people with other marital statuses. 
 
 \section{Revised DAG}
+Our revised and final DAG is shown in \autoref{fig:final_dag_small}.  A bigger
+version of this DAG is shown in the appendix (\autoref{sec:final_dag}
+\autoref{fig:final_dag}). 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/final_dag}
+	\caption{Initial DAG as proposed in expose.}
+	\label{fig:final_dag_small}
+\end{figure}
+
+\subsection{Final RMSEA values}
+The final RMSEA values can be found in \ref{sec:final_conditional_dependencies}. 
 
 \newpage
 \end{multicols}
