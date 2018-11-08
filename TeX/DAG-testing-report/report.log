@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.14)  8 NOV 2018 13:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.14)  8 NOV 2018 14:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -327,30 +327,58 @@ Package: multicol 2018/04/20 v1.8s multicolumn formatting (FMi)
 \colbreak@box=\box54
 \mc@col@check@num=\count128
 )
+(/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2018/08/03 v2.3 Span multiple rows of a table
+\multirow@colwidth=\skip50
+\multirow@cntb=\count129
+\multirow@dima=\skip51
+\bigstrutjot=\dimen143
+)
 (/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count129
+\c@float@type=\count130
 \float@exts=\toks22
 \float@box=\box55
 \@float@everytoks=\toks23
 \@floatcapt=\box56
+)
+(/usr/share/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
+
+(/usr/share/texmf-dist/tex/latex/tools/array.sty
+Package: array 2018/04/30 v2.4h Tabular extension package (FMi)
+\col@sep=\dimen144
+\ar@mcellbox=\box57
+\extrarowheight=\dimen145
+\NC@list=\toks24
+\extratabsurround=\skip52
+\backup@length=\skip53
+\ar@cellbox=\box58
+)
+\TX@col@width=\dimen146
+\TX@old@table=\dimen147
+\TX@old@col=\dimen148
+\TX@target=\dimen149
+\TX@delta=\dimen150
+\TX@cols=\count131
+\TX@ftn=\toks25
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -388,17 +416,17 @@ LaTeX Font Info:    ... okay on input line 17.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count130
-\scratchdimen=\dimen143
-\scratchbox=\box57
-\nofMPsegments=\count131
-\nofMParguments=\count132
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count133
-\MPscratchDim=\dimen144
-\MPnumerator=\count134
-\makeMPintoPDFobject=\count135
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count132
+\scratchdimen=\dimen151
+\scratchbox=\box59
+\nofMPsegments=\count133
+\nofMParguments=\count134
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count135
+\MPscratchDim=\dimen152
+\MPnumerator=\count136
+\makeMPintoPDFobject=\count137
+\everyMPtoPDFconversion=\toks27
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -416,8 +444,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box58
-Package hyperref Info: Link coloring OFF on input line 17.
+\AtBeginShipoutBox=\box60
+Package hyperref Info: Link coloring OFF on input line 19.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -425,11 +453,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count136
+\c@section@level=\count138
 )
-LaTeX Info: Redefining \ref on input line 17.
-LaTeX Info: Redefining \pageref on input line 17.
-LaTeX Info: Redefining \nameref on input line 17.
+LaTeX Info: Redefining \ref on input line 19.
+LaTeX Info: Redefining \pageref on input line 19.
+LaTeX Info: Redefining \nameref on input line 19.
  (./report.out) (./report.out)
 \@outlinefile=\write3
 \openout3 = `report.out'.
@@ -437,104 +465,94 @@ LaTeX Info: Redefining \nameref on input line 17.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<images/initial_dag.png, id=83, 1029.8475pt x 693.34032pt>
+<images/initial_dag.png, id=87, 1029.8475pt x 693.34032pt>
 File: images/initial_dag.png Graphic file (type png)
 <use images/initial_dag.png>
-Package pdftex.def Info: images/initial_dag.png  used on input line 33.
+Package pdftex.def Info: images/initial_dag.png  used on input line 35.
 (pdftex.def)             Requested size: 193.47578pt x 130.2549pt.
 
-Overfull \hbox (11.98888pt too wide) in paragraph at lines 49--58
+Overfull \hbox (11.98888pt too wide) in paragraph at lines 51--60
 [][] 
  []
 
-<images/age.png, id=86, 481.8pt x 481.8pt>
+<images/age.png, id=90, 481.8pt x 481.8pt>
 File: images/age.png Graphic file (type png)
 <use images/age.png>
-Package pdftex.def Info: images/age.png  used on input line 69.
+Package pdftex.def Info: images/age.png  used on input line 71.
 (pdftex.def)             Requested size: 193.47578pt x 193.4738pt.
-<images/nr_employed.png, id=87, 481.8pt x 481.8pt>
+<images/nr_employed.png, id=91, 481.8pt x 481.8pt>
 File: images/nr_employed.png Graphic file (type png)
 <use images/nr_employed.png>
-Package pdftex.def Info: images/nr_employed.png  used on input line 77.
+Package pdftex.def Info: images/nr_employed.png  used on input line 79.
 (pdftex.def)             Requested size: 193.47578pt x 193.4738pt.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/initial_dag.png> 
 <./images/age.png>]
-<images/emp_var_rate.png, id=106, 481.8pt x 481.8pt>
+<images/emp_var_rate.png, id=110, 481.8pt x 481.8pt>
 File: images/emp_var_rate.png Graphic file (type png)
 <use images/emp_var_rate.png>
-Package pdftex.def Info: images/emp_var_rate.png  used on input line 85.
+Package pdftex.def Info: images/emp_var_rate.png  used on input line 87.
 (pdftex.def)             Requested size: 193.47578pt x 193.4738pt.
-<images/consumer_price_index.png, id=107, 481.8pt x 481.8pt>
+<images/consumer_price_index.png, id=111, 481.8pt x 481.8pt>
 File: images/consumer_price_index.png Graphic file (type png)
 <use images/consumer_price_index.png>
-Package pdftex.def Info: images/consumer_price_index.png  used on input line 93
+Package pdftex.def Info: images/consumer_price_index.png  used on input line 95
 .
 (pdftex.def)             Requested size: 193.47578pt x 193.4738pt.
-<images/consumer_confidence_index.png, id=108, 481.8pt x 481.8pt>
+<images/consumer_confidence_index.png, id=112, 481.8pt x 481.8pt>
 File: images/consumer_confidence_index.png Graphic file (type png)
 <use images/consumer_confidence_index.png>
 Package pdftex.def Info: images/consumer_confidence_index.png  used on input li
-ne 101.
+ne 103.
 (pdftex.def)             Requested size: 193.47578pt x 193.4738pt.
-<images/euribor3m.png, id=109, 481.8pt x 481.8pt>
+<images/euribor3m.png, id=113, 481.8pt x 481.8pt>
 File: images/euribor3m.png Graphic file (type png)
 <use images/euribor3m.png>
-Package pdftex.def Info: images/euribor3m.png  used on input line 109.
+Package pdftex.def Info: images/euribor3m.png  used on input line 111.
 (pdftex.def)             Requested size: 193.47578pt x 193.4738pt.
  [2 <./images/nr_employed.png> <./images/emp_var_rate.png> <./images/consumer_p
 rice_index.png> <./images/consumer_confidence_index.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 167.
-
-
-(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 167.
-
-Overfull \hbox (31.2731pt too wide) in paragraph at lines 174--183
+Overfull \hbox (31.2731pt too wide) in paragraph at lines 173--182
 [][] 
  []
 
 [3 <./images/euribor3m.png>]
 File: images/initial_dag.png Graphic file (type png)
 <use images/initial_dag.png>
-Package pdftex.def Info: images/initial_dag.png  used on input line 192.
+Package pdftex.def Info: images/initial_dag.png  used on input line 243.
 (pdftex.def)             Requested size: 435.32422pt x 293.07352pt.
- [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 343.
- [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 343.
+ [4] [5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 394.
+ [6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 394.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 343.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 343.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 394.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 394.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 63E7CC0006FD3EE167698DC181DD6185;1214.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 343.
+(rerunfilecheck)             Checksum: A501626E785250884353A9E38EFBE57B;1284.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 394.
  ) 
 Here is how much of TeX's memory you used:
- 7786 strings out of 492642
- 117431 string characters out of 6135566
- 240096 words of memory out of 5000000
- 11566 multiletter control sequences out of 15000+600000
+ 7918 strings out of 492642
+ 119049 string characters out of 6135566
+ 234486 words of memory out of 5000000
+ 11690 multiletter control sequences out of 15000+600000
  10045 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,6n,40p,270b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,6n,40p,308b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmtt8.pfb>
-Output written on report.pdf (5 pages, 303447 bytes).
+/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmtt8.pfb>
+Output written on report.pdf (6 pages, 299078 bytes).
 PDF statistics:
- 180 PDF objects out of 1000 (max. 8388607)
- 147 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
- 188 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 184 PDF objects out of 1000 (max. 8388607)
+ 151 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 196 words of extra memory for PDF output out of 10000 (max. 10000000)
 

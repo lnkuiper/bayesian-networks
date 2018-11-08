@@ -7,7 +7,9 @@
 \usepackage{subcaption}
 \usepackage{amsmath}
 \usepackage{multicol}
+\usepackage{multirow}
 \usepackage{float}
+\usepackage{tabularx}
 % !TeX spellcheck = en_GB 
 
 \title{Report: Bayesian Networks DAG Testing}
@@ -20,7 +22,7 @@
 \begin{multicols}{2}
 \section{Introduction}
 In this report we present the findings of testing and amending the initial model
-as proposed in our exposee.  The model was iteratively tested using the
+as proposed in our expose.  The model was iteratively tested using the
 $\chi^2$-test, removing and adding variables/connections at each step.
 
 \section{Initial DAG}
@@ -31,7 +33,7 @@ in the appendix (\autoref{sec:initial_dag} \autoref{fig:initial_dag}).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{images/initial_dag}
-	\caption{Initial DAG as proposed in exposee.}
+	\caption{Initial DAG as proposed in expose.}
 	\label{fig:initial_dag_small}
 \end{figure}
 
@@ -44,7 +46,7 @@ Conditional independencies were automatically derived using the
 \section{Approach}
 Tests were performed automatically using the \texttt{localTests} function from
 the \texttt{dagitty} package.  However, we are dealing with attributes that can
-take on many different values, so we'll need to do some pre-processing first.
+take on many different values, so we'll need to do some pre processing first.
 
     \begin{tabular}{ll}
         \textbf{variable} & \textbf{type} \\
@@ -136,10 +138,10 @@ efficiently.
 Later on in the process, we found that the contact type was
 changed only once in time. The first two years of the data collection was done
 via landline, while the last three years all calls were made via a mobile phone.
-We finally decided to delete the contact type alltogether. 
+We finally decided to delete the contact type altogether. 
 
 \subsection{Latent variables}
-Education and duration were dependent on eachother, conditioned on five other
+Education and duration were dependent on each other, conditioned on five other
 variables. We added a latent variable called patience. This latent variable
 disappeared again with the deletion of duration. 
 
@@ -148,7 +150,7 @@ marital status. Another dependency between education and y exists. Because of
 this, we add a latent variable "willingness to take a loan". This latent
 variable has connections from age, marital status and education, and has
 connections to housing, loan and y. All direct connections between these
-variables were removed. This latent variable later became wealth, where it als
+variables were removed. This latent variable later became wealth, where it has
 got connections to marital status and default. 
 
 At first, we thought we could remove patience because the latent variable wealth
@@ -159,18 +161,15 @@ direct connection between education to duration.
 Later on, we found that duration is actually dependent on y. This is because,
 when people decide that they want a loan (y=true), the call becomes much longer
 because of the further administration that has to be done over the phone. This
-made us delete the duration alltogether. 
+made us delete the duration altogether. 
 
-A few other arrows and vertexes got deleted because they were not meaningfull:
-
-\begin{itemize}
-    \item the vertex day\_of\_week
-    \item the vertex campaign
-\end{itemize}
+Additionally, the vertexes day\_of\_week and campaign got deleted because they
+were not meaningfull. 
 
 \subsection{Binning}
 We binned the following data in bins:
 
+\medskip
 \begin{tabular}{ll}
     \textbf{Variable}           & \textbf{Split on} \\
     Age                         & 18, 25, 30, 45, 60 \\
@@ -180,6 +179,58 @@ We binned the following data in bins:
     Euribor \ 1000              & 3 \\
     Nr. employed                & 5050, 5150 \\
 \end{tabular}
+
+\subsection{Economical variables}
+Because we are not economics, we did a little trial and error with the
+economical values. All economical variables are updated every three months. The
+connections we found are listed in the table below. 
+
+\bigskip
+Whether a person has a job depends partly on the global employment and on the
+employment variation rate
+
+\medskip
+\begin{tabular}{ll}
+    \textbf{from} & \textbf{to} \\
+    emp.var.rate & job\\
+    nr.employed & job 
+\end{tabular}
+
+\bigskip
+Whether a person can afford a house depends partly on the global economy, so all
+four economic variables. This is also true for whether a person needs a loan,
+and/or has a default. 
+
+\medskip
+\begin{tabular}{ll}
+    \textbf{from} & \textbf{to} \\
+    emp.var.rate & housing \\
+    nr.employed & housing \\ 
+    cons.conf.idx & housing \\ 
+    cons.price.idx & housing \\ 
+    emp.var.rate & loan \\
+    nr.employed & loan \\ 
+    cons.conf.idx & loan \\ 
+    cons.price.idx & loan \\ 
+    emp.var.rate & default \\
+    nr.employed & default \\ 
+    cons.conf.idx & default \\ 
+    cons.price.idx & default \\ 
+\end{tabular}
+
+\bigskip
+Euribor3m is the average interest of European banks. Banks also change their
+interest based on the current economical climate. Because of this, we created
+dependencies from euribor3m to all other economical variables. Later on, we
+found that a lot of combinations between euribor3m and other economical
+variables didn't exist in our data. Combined with the fact that euribor3m only
+has two bins, this made the LocalTests function fail. Because the Euribor3m
+variable only influences the other economical variables, we could easily delete
+it. So we did. 
+
+
+
+We vinden vrij hoge RMSEA waarden tussen marital en economische variabelen, geconditioneerd op andere economische variabelen. Dit is een gekke dependency. We vermoeden dat de strategie van het bedrijf is veranderd over de tijd, en dat ze meer/minder getrouwde/gescheiden mensen zijn gaan bellen.
 
 \section{Revised DAG}
 
