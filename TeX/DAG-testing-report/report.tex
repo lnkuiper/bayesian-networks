@@ -14,7 +14,7 @@
 % !TeX spellcheck = en_GB 
 
 \title{Report: Bayesian Networks DAG Testing}
-\date{8 November 2018}
+\date{11 November 2018}
 \author{Niek Janssen (s4297091)\and Laurens Kuiper (s4467299)\and Ward Theunisse (s4492765)}
 
 \begin{document}
@@ -211,7 +211,7 @@ employment variation rate
 \medskip
 Whether a person can afford a house depends partly on the global economy, so all
 four economic variables. This is also true for whether a person needs a loan,
-and/or has a default. 
+and/or is in default. 
 
 \bigskip
 \begin{tabular}{ll}
@@ -233,7 +233,7 @@ and/or has a default.
 \end{tabular}
 
 \bigskip
-The economical variables also influence eachother. In short: The employment
+The economical variables also influence one another. In short: Employment rate
 influences the consumer indexes. This is because the consumer economics do
 better when the job market performs better. 
 
@@ -250,20 +250,20 @@ better when the job market performs better.
 
 
 \bigskip
-Euribor3m is the average interest of European banks. Banks also change their
+Euribor3m is the 3 month average interest rate of a group of European banks. Banks also change their
 interest based on the current economical climate. Because of this, we created
 dependencies from euribor3m to all other economical variables. During testing we
 found that a lot of combinations between euribor3m values and other economical
 variables didn't exist in our data. This, and the fact that euribor3m only
-has two bins, made the \texttt{localTests} function return an error. Because the influence
-of the euribor3m attribute is expressed in the other economical variables, because
-they are dependent on it we decided to delete it.
+has two bins, made the \texttt{localTests} function return an error when such a combination occurred as a condition. Because the influence
+of the euribor3m attribute is captured strongly by the other economical variables, being
+dependent on it, we decided to delete the euribor3m variable.
 
 
 
 We found high RMSEA values between marital and economical variables,
 conditioned on other economical variables. We think this is an illogical
-dependency, and decided not to change our DAG to address this.
+dependency, likely to be an artefact in our dataset because of some unobserved variable such as for instance company strategy, and decided not to change our DAG to address this.
 
 \section{Revised DAG}
 Our revised and final DAG is shown in \autoref{fig:final_dag_small}.  A bigger
@@ -281,14 +281,14 @@ version of this DAG is shown in the appendix (\autoref{sec:final_dag}
 The final testing values can be found in \autoref{sec:final_test_results}.
 Because we focused conditional independencies with an RMSEA value greater than 0.05, many independencies have disappeared.
 Mainly, economic variables have been connected with many other variables.
-We believe this was the right thing to do because the overall state of the economy is a good predictor of an individual's economical status.
+We believe this was the right thing to do because the overall state of the economy is a good predictor of an individual's economical status and consequently, their willingness to take out loans.
 
-Still, some independencies with an RMSEA value $\ge 0.5$ remain.
+Still, some independencies with an RMSEA value $\ge 0.5$ remain. This is by choice.
 The RMSEA values that stand out the most are associated with the \textit{marital} attribute in combination with economic variables.
 We are convinced that these are coincidental, an artifact of our binning, or an artifact of change in the marketing strategy of the bank, and that no new edges or latent variables should be introduced to explain them.
 
 \subsection{Conclusion}
-We are happy with our final DAG, not just because it deals with most of the high RMSEA values that we found, and we feel that the edges drawn can be explained with reason.
+We are happy with our final DAG, not just because it deals with most of the high RMSEA values that we found, but also because we feel that the edges drawn can be explained with reason.
 
 Finally, we intended to analyse our latent variable \textit{wealth} using the \texttt{lavaan} package, but since it expects different input than \texttt{dagitty}, we did not have time to do so.
 
