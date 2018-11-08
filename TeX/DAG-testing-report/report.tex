@@ -51,15 +51,19 @@ Tests were performed automatically using the \texttt{localTests} function from
 the \texttt{dagitty} package.  However, the data has some attributes that can
 take on many different values. This would cause issues, therefore, pre-processing was performed.
 
-    \begin{tabular}{ll}
-        \textbf{variable} & \textbf{type} \\
-        age & Discrete values between 18-85 \\
-        nr.employed & continuous values \\
-        emp.var.rate & continuous values \\
-        cons.price.idx & continuous values \\
-        cons.conf.idx & continuous values \\
-        euribor3m & continuous values \\
-    \end{tabular}
+\medskip
+\begin{tabular}{ll}
+    \textbf{variable} & \textbf{type} \\
+    age & Discrete values between 18-85 \\
+    nr.employed & continuous values \\
+    emp.var.rate & continuous values \\
+    cons.price.idx & continuous values \\
+    cons.conf.idx & continuous values \\
+    euribor3m & continuous values \\
+\end{tabular}
+
+\medskip
+All other attributes were nominal values related to social and economical status of the person.
 
 \subsection{Data analysis}
 Because \texttt{dagitty} interprets our data as nominal, it is necessary to bin
@@ -182,13 +186,12 @@ would suffice, but this wasn't the case. We could, however, replace it with a
 direct connection between education to duration. 
 
 \subsection{More deletions}
-Later on, we found that duration is actually dependent on y. This is because,
+We read from the source of the dataset that duration is so closely relate to y (outcome), that it should not be included in predictive models. This is because,
 when people decide that they want a loan (y=true), the call becomes much longer
 because of the further administration that has to be done over the phone. This
 made us delete the duration altogether. 
 
-Additionally, the vertexes day\_of\_week and campaign got deleted because they
-were not meaningful. 
+Additionally, we deleted the attributes day\_of\_week and campaign because they had no predictive value. 
 
 \subsection{Economical variables}
 Because we are not economists, we did a little trial and error with the
