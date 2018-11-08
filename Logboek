@@ -44,3 +44,22 @@ Price index: =(R2/1000<92.6)*1+(R2/1000<93.3)*1+(R2/1000<93.6)*1+(R2/1000<94.3)*
 Emp var rate: =(Q2<-2.1)*1+(Q2<-0.5)*1+(Q2<0.5)*1 (range 0 tm 3)
 Euribor: =(T2/1000<3)*1 (range 0 tm 1)
 Nr employed: =(U2<5050)*1+(U2<5150)*1 (range 0 tm 3)
+
+Economische variabelen:
+We trekken pijlen van maand naar elke economische variabele omdat het (3-)maandelijkse indicatoren zijn, en een pijl van elke economische indicator naar de uitkomst y.
+
+Pijl van nr.employed naar cons.conf.idx, dit is één van de dingen die gemeten wordt om de confidence te bepalen.
+
+Pijl van emp.var.rate naar confidence, en van price index naar confidence. Intuitie: als variatie in nr.employed hoog is dan komen en gaan er veel banen, dit heeft veel invloed op confidence.
+
+Euribor3m is het gemiddelde van rente van Europese banken. Banken bepalen hun rente op basis van het huidige economische klimaat. Pijl van alle economische variabelen naar e3m.
+
+Emp.var.rate en nr.employed naar cons.price.idx.
+
+Pijlen van confidence, nr.employed en price index naar default, vanwege hoge RMSEA waarde. Intuitie: als confidence en prijs goed zijn doen bedrijven/zzp-ers het beter, dus dan is het minder waarschijnlijk dat ze geld in default hebben.
+
+LocalTests faalt omdat euribor3m maar 2 unieke waarden heeft (ook vanwege binning), en er wat combinaties van geconditioneerd waarden niet voorkomen. Oplossing: verwijder e3m. Dit kan omdat de invloed van e3m wordt uitgeoefend in de andere economische variabelen.
+
+We vinden vrij hoge RMSEA waarden tussen marital en economische variabelen, geconditioneerd op andere economische variabelen. Dit is een gekke dependency. We vermoeden dat de strategie van het bedrijf is veranderd over de tijd, en dat ze meer/minder getrouwde/gescheiden mensen zijn gaan bellen.
+
+Pijl van price index naar loan vanwege hoge RMSEA waarde. Intuitie: als prijzen hoger zijn hebben mensen sneller een loan nodig.
