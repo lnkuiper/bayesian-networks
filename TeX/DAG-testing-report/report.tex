@@ -147,16 +147,17 @@ A changelog of the findings of our testing strategy is described in the subsecti
 
 \subsection{Contact type}
 When we first tested the independencies of our DAG, we found a very strong
-dependency between the contact type variable (indicating whether the consumer reached on their cellphone or landline) and the month. After a quick look, this
+dependency between the contact type variable (indicating whether the consumer
+reached on their cellphone or landline) and the month. After a quick look, this
 seemed to be corresponding to the data we have, so we added an arrow from month
 to contact type. 
 
-Before we deleted the contact type, though, we found a strong dependency between
-default and contact medium, conditioned on age and job. Because the month is
-strongly influential on the contact type, we deemed it likely
-that the month would have a connection with default. We thought it would also be
-logical that some months would be more expensive than others, so in these months
-people are more likely to have a default. 
+We also found a strong dependency between default and contact medium,
+conditioned on age and job. Because the month is strongly influential on the
+contact type, we deemed it likely that the month would have a connection with
+default. We thought it would also be logical that some months would be more
+expensive than others, so in these months people are more likely to have a
+default. 
 
 We also found a dependency from education to contact. We might be able to
 explain this because people with certain jobs need a mobile phone to work
@@ -169,9 +170,13 @@ Because this is skewed so heavily, we decided to delete the contact type attribu
 
 \subsection{Latent variables}
 Education and duration were dependent on each other, conditioned on five other
-variables. We added a latent variable called patience. This latent variable
-disappeared again when we deleted duration. We removed duration because it highly affects the output target, but it is only known after a call is performed, thus not offering any predictive / actionable information.
-The authors of the paper that our data features in state that " this input should only be included for benchmark purposes and should be discarded if the intention is to have a realistic predictive model."
+variables. Because of this, added a latent variable called patience. This latent
+variable disappeared again when we deleted duration. We removed duration because
+it highly affects the output target, but it is only known after a call is
+performed, thus not offering any predictive / actionable information.  The
+authors of the paper that our data features in state that " this input should
+only be included for benchmark purposes and should be discarded if the intention
+is to have a realistic predictive model."
 
 We also found a dependency between loan and housing, conditioned on age, job and
 marital status. Another dependency between education and y exists. Because of
@@ -219,13 +224,13 @@ and/or is in default.
     emp.var.rate & housing \\
     nr.employed & housing \\ 
     cons.conf.idx & housing \\ 
-    cons.price.idx & housing \\ 
     \medskip
+    cons.price.idx & housing \\ 
     emp.var.rate & loan \\
     nr.employed & loan \\ 
     cons.conf.idx & loan \\ 
-    cons.price.idx & loan \\
     \medskip
+    cons.price.idx & loan \\
     emp.var.rate & default \\
     nr.employed & default \\ 
     cons.conf.idx & default \\ 
