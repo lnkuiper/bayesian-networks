@@ -13,7 +13,6 @@ nr.employed [pos="-0.306,-1.799"]
 wealth [latent,pos="-0.873,-1.059"]
 y [outcome,pos="-0.478,1.050"]
 age -> education
-age -> housing
 age -> job
 age -> marital
 age -> wealth
