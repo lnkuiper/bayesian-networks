@@ -1,0 +1,58 @@
+% Radboud University Nijmegen titlepage
+% Author: Mart Lubbers
+% Date: 2016-06-28
+%
+% TODO
+% - Internationalize (dutch logos)
+% - Nice document
+% - Make CTAN ready
+\RequirePackage{graphicx,ifpdf,keyval}
+
+\makeatletter
+\define@key{maketitleru}{course}{\def\@rutitlecourse{#1}}
+\define@key{maketitleru}{institute}{\def\@rutitleinst{#1}}
+\define@key{maketitleru}{authorstext}{\def\@rutitleauthorstext{#1}}
+\define@key{maketitleru}{righttext}{\def\@rutitlerighttext{#1}}
+\define@key{maketitleru}{righttextheader}{\def\@rutitlerighttextheader{#1}}
+\setkeys{maketitleru}{%
+	course={},
+	institute={Radboud University Nijmegen},
+	authorstext={Authors:},
+	righttextheader={},
+	righttext={}
+}	
+\newcommand{\maketitleru}[1][]{
+	\setkeys{maketitleru}{#1}
+	\begin{titlepage}
+		\makeatletter
+		\begin{center}
+			\textsc{\LARGE\@rutitlecourse}\\[1.5cm]
+			\ifpdf\includegraphics[height=150pt]{logo.pdf}\\
+			\else\includegraphics[height=150pt]{logo.eps}\\
+			\fi
+			\vspace{0.4cm}
+			\textsc{\Large\@rutitleinst}\\[1cm]
+			\hrule
+			\vspace{0.4cm}
+			\textbf{\large\@title}\\[0.4cm]
+			\hrule
+			\vspace{2cm}
+			\begin{minipage}[t]{0.45\textwidth}
+				\begin{flushleft}\large
+					\textit{\@rutitleauthorstext}\\
+					\@author{}
+				\end{flushleft}
+			\end{minipage}
+			\begin{minipage}[t]{0.45\textwidth}
+					\begin{flushright}\large
+					\textit{\@rutitlerighttextheader}\\
+					\@rutitlerighttext
+				\end{flushright}
+			\end{minipage}
+			\vfill
+			{\large\@date}
+		\end{center}
+		\makeatother
+	\end{titlepage}
+}
+\makeatother
