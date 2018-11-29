@@ -7,5 +7,5 @@ do:
 	pdflatex -shell-escape report.tex
 	pdflatex -shell-escape report.tex
 	pdflatex -shell-escape report.tex
-	rm *.aux *.log *.out *.tex *.toc
+	rm *.aux *.log *.out *.toc
 
