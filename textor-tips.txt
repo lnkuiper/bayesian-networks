@@ -1,0 +1,3 @@
+Gebruik qqnorm om data weer te geven, om beter te snappen hoe het is verdeeld
+De correlatie-test evaluatie is robuuster en genereert betere netwerken, maar kan alleen op ordinale data
+Probeer dingen om te zetten in ordinale data, als dit niet kan moet het binair gemaakt worden.
