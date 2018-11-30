@@ -65,7 +65,7 @@ d$loan <- as.numeric(d$loan) - 1
 # binarize outcome
 d$y <- as.numeric(d$y) - 1
 
-# binarize matrial, add columns to dataframe to dataframe
+# binarize matital, add columns to dataframe to dataframe
 d <- cbind(d[1:2], sapply(levels(d$marital), function(x) as.numeric(x == d$marital)), d[4:12])
 
 # show edited dataframe, generate graph
