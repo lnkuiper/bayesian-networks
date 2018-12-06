@@ -82,7 +82,7 @@
 
 \let\End\end
 
-\title{Using data to maximize profits from marketing campaigns}
+\title{Using data to maximize profits for marketing campaigns}
 \author{Niek Janssen (s4297091) \\ Laurens Kuiper (s4467299) \\ Ward Theunisse (s4492765)}
 \date{December 2018}
 
@@ -100,9 +100,9 @@ Companies engage in direct marketing campaigns by contacting potential
 customers to reach a specific goal (e.g.~selling a product or service).
 Communicating is often done by telephone, initiated from the company's
 contact center. One of the biggest challenges the companies face is
-estimating which people are most likely to buy their product: many calls
+estimating what people are most likely to buy their product: many calls
 result in customers declining the offer. For a company to have a
-succesful marketing campaign, a sufficient number of customers must
+successful marketing campaign, a sufficient number of customers must
 follow up on their offer, otherwise it will cost more than it will bring
 in.
 
@@ -503,9 +503,162 @@ Finally, we intended to analyse our latent variable \textit{wealth}
 using the \texttt{lavaan} package, but since it expects different input
 than \texttt{dagitty}, we did not have time to do so.
 
-\hypertarget{generating-the-causal-diagram-with-structured-learning}{%
-\subsection{Generating the causal diagram with structured
-learning}\label{generating-the-causal-diagram-with-structured-learning}}
+\hypertarget{structure-learning}{%
+\subsection{Structure learning}\label{structure-learning}}
+
+In this section we automatically construct a Bayesian network structure
+for our dataset using a structure learning algorithm. The PC algorithm
+(named after its authors, Peter and Clark) is the state-of-the-art
+constraint based method for causal discovery. It is based on the
+Inductive Causation (IC) algorithm by Pearl and Verma, 1991. It uses
+many conditional independence tests, similar to the tests we performed
+in the previous section.
+
+\hypertarget{software}{%
+\subsubsection{Software}\label{software}}
+
+The \texttt{bnlearn} package implements various structure learning
+algorithms. Their implementation of PC is called \texttt{pc.stable},
+which takes the data, and many parameters, of which at least three must
+be considered before learning network structure, which are the
+following.
+
+\medskip
+\begin{tabular}{ll}
+    \textbf{variable}   & \textbf{type} \\
+    \texttt{test}       & the conditional independence test to \\
+                        & use \\
+    \texttt{alpha}      & target error rate \\
+    \texttt{max.sx}     & maximum size of conditioning sets \\
+                        & used in independence tests \\
+\end{tabular}
+\medskip
+
+\hypertarget{early-observations}{%
+\subsubsection{Early observations}\label{early-observations}}
+
+In the previous section we binned the data to nominal values to use the
+\(\chi^2\) test for conditional independencies. An RMSEA value greater
+than 0.05 was considered to be too high for these tests, and a maximum
+size of the conditioning sets was not set. We aim to learn a network
+structure from the data that we can compare to the model that we created
+ourselves, so our first structure learning approach was to use
+\texttt{pc.stable} with
+\texttt{test\ =\ \textquotesingle{}x2\textquotesingle{},\ alpha\ =\ 0.05,\ max.sx\ =\ NULL}.
+This gave us an extremely sparse graph with many variables not having an
+edge at all. Changing the test to other tests that are suitable for
+nominal values, as well as changing the other two parameters had little
+to no effect on the outcome. We assume the main reason for this to be
+that many combinations of variables have too few samples, which causes
+the conditional independence tests for nominal variables to be
+unreliable or even undefined, especially when the size of the
+conditioning set increases. This leads us to believe that we cannot work
+with nominal values if we wish to learn a network structure that can be
+compared with the network that we created in the previous section.
+
+\hypertarget{approach-1}{%
+\subsubsection{Approach}\label{approach-1}}
+
+We aim to use the correlation test for independence, because it is
+considered to be more robust, and mainly, it does not suffer from the
+problem that we encountered. This test needs continuous variables. To
+convert our data to continuous, we must again look into the data, as
+well as use our domain knowledge to convert all variables to
+\texttt{numeric} type in \texttt{R}.
+
+\hypertarget{pre-processing}{%
+\paragraph{Pre-processing}\label{pre-processing}}
+
+We start again from the unbinned data, with 41188 data points. The same
+variables that were dropped in the the previous section are dropped from
+the dataset again. That means that the variables \emph{contact, month,
+day\_of\_week, duration, compaign, pdays, previous, poutcome} and
+\emph{euribor3m} are out.
+
+We will now discuss how the remaining variables were transformed to be
+continuous.
+
+\hypertarget{age-1}{%
+\subparagraph{Age}\label{age-1}}
+
+This variable was already an integer, so we simply cast it to numeric.
+
+\hypertarget{job}{%
+\subparagraph{Job}\label{job}}
+
+This variable has 12 levels: \emph{admin., blue-collar, entrepreneur,
+housemaid, management, retired, self-employed, services, student,
+technician, unemployed, unknown}. The levels were grouped based on
+salary, then mapped to a numeric value. The dataset is from Portugal,
+but data from \href{https://money.usnews.com/}{usnews.com} was used to
+estimate income, because it is publicly available. We came up with the
+following groups along with their values:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{unknown, unemployed, retired, student}
+\item
+  \emph{housemaid, services, blue-coller}
+\item
+  \emph{admin., technician}
+\item
+  \emph{self-employed, entrepreneur}
+\item
+  \emph{management}
+\end{enumerate}
+
+\hypertarget{marital}{%
+\subparagraph{Marital}\label{marital}}
+
+This variable has 4 levels: \emph{divorced, married, single, unknown}.
+There were only 80 \emph{unknown} entries, so these were added to
+\emph{single}. Then, from this variable, the three binary variables
+\emph{divorced, married, single} were created. These are often called
+`dummy variables'.
+
+\hypertarget{education}{%
+\subparagraph{Education}\label{education}}
+
+This variable has 8 levels, which were simply ordered 1 through 9 from
+low to high, before being cast to numeric. The order chosen is:
+\emph{unknown, illiterate, basic.4y, basic.6y, basic.9y, high.school,
+professional.course, university.degree}.
+
+\hypertarget{default}{%
+\subparagraph{Default}\label{default}}
+
+This variable has 3 levels: \emph{no, unknown, yes}. There were only 3
+\emph{yes} entries, so these were added to \emph{unknown}. The variable
+was then made binary with 0 representing \emph{no}, and 1 representing
+\emph{unknown}.
+
+\hypertarget{housing-loan}{%
+\subparagraph{Housing \& Loan}\label{housing-loan}}
+
+These variables both have 3 levels: \emph{no, unknown, yes}. There were
+exactly 990 \emph{unknown} entries in both, these were added to
+\emph{no}. The variable was then made binary with 0 representing
+\emph{no}, and 1 representing \emph{yes}.
+
+\hypertarget{economic-variables}{%
+\subparagraph{Economic variables}\label{economic-variables}}
+
+The four economic variables \emph{emp.var.rate, cons.price.idx,
+cons.conf.idx, nr.employed} are already numeric, and were not altered.
+
+\hypertarget{outcome}{%
+\subparagraph{Outcome}\label{outcome}}
+
+Outcome variable \emph{y} has 2 levels: \emph{no, yes}. These were
+simply mapped to 0 and 1, respectively.
+
+\hypertarget{automatic-network-construction}{%
+\paragraph{Automatic network
+construction}\label{automatic-network-construction}}
+
+Now that the variables are converted to \texttt{numeric}, \ldots{}
 
 \hypertarget{application}{%
 \section{Application}\label{application}}
@@ -568,10 +721,7 @@ the final model, we can advise the bank about:
 dependencies}\label{initial-conditional-dependencies}}
 
 \label{sec:initial_conditional_dependencies}
-
-\{\tiny
-
-\begin{verbatim}
+{\tiny\begin{verbatim}
 consumer confidence index _||_ consumer price index
 consumer confidence index _||_ contact type (medium)
 consumer confidence index _||_ credit in default?
@@ -713,16 +863,13 @@ previous campaign outcome _||_ age
 previous campaign outcome _||_ education
 previous campaign outcome _||_ job
 OUTCOME _||_ education | age, credit in default?, employment variation, has housing loan?, has personal loan?, job, number of employees
-\end{verbatim}
-
-\}
+\end{verbatim}}
 
 \hypertarget{final-test-results}{%
 \section{Final test results}\label{final-test-results}}
 
-\textbackslash{}label\{sec:final\_test\_results\} \{\tiny
-
-\begin{verbatim}
+\label{sec:final_test_results}
+{\tiny\begin{verbatim}
                                                              rmsea        x2   df       p.value
 age _||_ cons.conf.idx                                  0.08114638 4083.0823   15  0.000000e+00
 age _||_ cons.price.idx                                 0.05653150 2652.5172   20  0.000000e+00
@@ -740,7 +887,7 @@ education _||_ emp.var.rate                             0.02872860  734.8521   2
 education _||_ nr.employed                              0.03035075  545.1620   14 2.425708e-107
 emp.var.rate _||_ marital | age, education, job         0.12642528 2417.9671 1208  3.182673e-83
 marital _||_ nr.employed | age, education, job          0.12932179 1626.0104  831  6.335085e-54
-\end{verbatim}
+\end{verbatim}}
 
 \hypertarget{references}{%
 \section*{References}\label{references}}
