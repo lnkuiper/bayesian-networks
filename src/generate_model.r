@@ -1,11 +1,10 @@
 # install.packages('bnlearn', repos='https://cran.r-project.org/')
-install.packages('gRain', repos='https://cran.r-project.org/', dependencies=TRUE)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("RBGL")
+# source("http://bioconductor.org/biocLite.R")
+# biocLite(c("graph", "RBGL", "Rgraphviz"))
+# install.packages('gRain', repos='https://cran.r-project.org/', dependencies=TRUE)
 library(bnlearn)
 library(dagitty)
-library(gRain)
+# library(lavaan)
 
 # d <- read.csv('../data/bank-additional-full-binned.csv',sep=',')
 d <- read.csv('../data/bank-additional-full.csv',sep=';')
@@ -74,8 +73,17 @@ d$y <- as.numeric(d$y) - 1
 d <- cbind(d[1:2], sapply(levels(d$marital), function(x) as.numeric(x == d$marital)), d[4:12])
 
 # show edited dataframe, generate graph
-str(d)
-g <- pc.stable(d, alpha=0.125, test="cor", max.sx=5)
+# str(d)
+# d <- as.data.frame(scale(d))
+# str(d)
+
+# create blacklist of edges
+froms <- c( c(rep("y", ncol(d))), colnames(d) )
+tos <- c( colnames(d), c(rep("age", ncol(d))) )
+bl <- do.call(rbind, Map(data.frame, A=froms, B=tos))
+
+g <- pc.stable(d, alpha=0.05, test="cor", max.sx=NULL, blacklist=bl)
+g$nodes$y$bm
 
 # show plot
 # png("DAG.png", width=1000, height=1000, units='px')
