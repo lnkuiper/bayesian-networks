@@ -1,6 +1,11 @@
 # install.packages('bnlearn', repos='https://cran.r-project.org/')
+install.packages('gRain', repos='https://cran.r-project.org/', dependencies=TRUE)
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("RBGL")
 library(bnlearn)
 library(dagitty)
+library(gRain)
 
 # d <- read.csv('../data/bank-additional-full-binned.csv',sep=',')
 d <- read.csv('../data/bank-additional-full.csv',sep=';')
@@ -70,7 +75,7 @@ d <- cbind(d[1:2], sapply(levels(d$marital), function(x) as.numeric(x == d$marit
 
 # show edited dataframe, generate graph
 str(d)
-g <- pc.stable(d, alpha=0.05, test="cor")
+g <- pc.stable(d, alpha=0.125, test="cor", max.sx=5)
 
 # show plot
 # png("DAG.png", width=1000, height=1000, units='px')

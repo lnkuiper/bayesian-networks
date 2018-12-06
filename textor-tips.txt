@@ -1,3 +1,32 @@
 Gebruik qqnorm om data weer te geven, om beter te snappen hoe het is verdeeld
 De correlatie-test evaluatie is robuuster en genereert betere netwerken, maar kan alleen op ordinale data
 Probeer dingen om te zetten in ordinale data, als dit niet kan moet het binair gemaakt worden.
+
+
+https://money.usnews.com/
+
+
+
+unknown, unemployed, retired, student
+housemaid (22k),  services (22k), blue-collar
+admin (35k), technician (45k)
+self-employed, entrepreneur
+management (115k)
+
+unknown
+illiterate
+basic.4y
+basic.6y
+basic.9y
+high.school
+professional.course
+university.degree
+
+binarize marital, unknown to some group
+
+binarize default, yes to unknown
+
+binarize housing, unknown to no
+
+binarize loan, unknown to no
+
