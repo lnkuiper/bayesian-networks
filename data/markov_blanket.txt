@@ -1,0 +1,61 @@
+lavaan 0.6-3 ended normally after 30 iterations
+
+  Optimization method                           NLMINB
+  Number of free parameters                         23
+
+  Number of observations                         41188
+
+  Estimator                                         ML
+  Model Fit Test Statistic                    2019.485
+  Degrees of freedom                                12
+  P-value (Chi-square)                           0.000
+
+Parameter Estimates:
+
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+  Standard Errors                             Standard
+
+Regressions:
+                   Estimate  Std.Err  z-value  P(>|z|)
+  default ~                                           
+    age               0.165    0.005   33.956    0.000
+  single ~                                            
+    age              -0.413    0.004  -92.530    0.000
+  y ~                                                 
+    age               0.032    0.005    6.197    0.000
+  age ~                                               
+    cons.conf.idx     0.129    0.005   26.478    0.000
+  emp.var.rate ~                                      
+    cons.conf.idx     0.103    0.001  102.191    0.000
+  y ~                                                 
+    cons.conf.idx     0.104    0.005   20.093    0.000
+  emp.var.rate ~                                      
+    cons.price.idx    0.414    0.001  351.373    0.000
+  y ~                                                 
+    cons.price.idx    0.132    0.011   12.328    0.000
+    default          -0.041    0.005   -8.788    0.000
+    emp.var.rate     -0.149    0.022   -6.647    0.000
+  cons.conf.idx ~                                     
+    nr.employed       0.101    0.005   20.503    0.000
+  cons.price.idx ~                                    
+    nr.employed       0.522    0.004  124.215    0.000
+  emp.var.rate ~                                      
+    nr.employed       0.680    0.001  575.364    0.000
+  single ~                                            
+    nr.employed      -0.110    0.004  -24.676    0.000
+  y ~                                                 
+    nr.employed      -0.287    0.016  -17.778    0.000
+    single            0.032    0.005    6.407    0.000
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)
+   .default           0.973    0.007  143.506    0.000
+   .single            0.819    0.006  143.506    0.000
+   .y                 0.859    0.006  143.506    0.000
+   .age               0.983    0.007  143.506    0.000
+   .emp.var.rate      0.042    0.000  143.506    0.000
+   .cons.conf.idx     0.990    0.007  143.506    0.000
+   .cons.price.idx    0.727    0.005  143.506    0.000
+
+NULL
